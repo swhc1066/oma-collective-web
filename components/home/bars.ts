@@ -7,44 +7,45 @@ export type SectionId = "tickets" | "event" | "show" | "venue" | "oma";
 
 export interface BarConfig {
   id: SectionId;
-  label: string;       // shown on the bar
+  /** Multi-line label exactly as it appears on the postcard SVG. */
+  label: string[];
   bg: string;          // CSS background color
-  fg: string;          // tailwind text-color class for label + content
+  fg: string;          // tailwind text-color class for label + section copy
   accent: string;      // tailwind text-color class for the eyebrow accent
 }
 
 export const BARS: BarConfig[] = [
   {
     id: "tickets",
-    label: "BUY YOUR TICKETS",
+    label: ["BUY", "YOUR", "TICKETS"],
     bg: "var(--color-rust)",
     fg: "text-[var(--color-bg-maroon)]",
     accent: "text-white",
   },
   {
     id: "event",
-    label: "THE EVENT",
+    label: ["THE", "EVENT"],
     bg: "var(--color-lavender)",
     fg: "text-[var(--color-bg-maroon)]",
     accent: "text-[var(--color-rust)]",
   },
   {
     id: "show",
-    label: "RUN OF SHOW",
+    label: ["RUN", "OF", "SHOW"],
     bg: "var(--color-chartreuse)",
     fg: "text-[var(--color-bg-maroon)]",
     accent: "text-[var(--color-yellow)]",
   },
   {
     id: "venue",
-    label: "THE VENUE",
+    label: ["THE", "VENUE"],
     bg: "var(--color-teal)",
     fg: "text-[var(--color-light-teal)]",
     accent: "text-white",
   },
   {
     id: "oma",
-    label: "ABOUT THE OMA",
+    label: ["ABOUT", "THE OMA"],
     bg: "var(--color-inner-maroon)",
     fg: "text-white",
     accent: "text-[var(--color-rust)]",

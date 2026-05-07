@@ -3,15 +3,16 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion, type Variants } from "motion/react";
 import { Wordmark } from "./Wordmark";
+import { CurveOverlay } from "./CurveOverlay";
 import { BARS, getBar, type SectionId } from "./bars";
 import { SectionBody } from "./sections";
 
 const barEnter: Variants = {
-  hidden: { x: 60, opacity: 0 },
+  hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
-    x: 0,
     opacity: 1,
-    transition: { delay: 0.1 + i * 0.06, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    y: 0,
+    transition: { delay: 0.15 + i * 0.06, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
@@ -29,7 +30,7 @@ export function Stage() {
     return () => window.removeEventListener("keydown", onKey);
   }, [active]);
 
-  // Lock scroll behind the open overlay.
+  // Lock body scroll behind the open overlay.
   useEffect(() => {
     if (active) {
       const prev = document.body.style.overflow;
@@ -42,42 +43,52 @@ export function Stage() {
 
   return (
     <main className="relative h-[100svh] w-screen overflow-hidden bg-[var(--color-bg-maroon)]">
-      {/* HOME GRID */}
-      <div
+      {/* HOME GRID — fades out when a section is active */}
+      <motion.div
         aria-hidden={active ? "true" : undefined}
-        className="grid h-full grid-rows-[1fr_auto] lg:grid-cols-[1fr_22rem] lg:grid-rows-1"
+        animate={{ opacity: active ? 0 : 1 }}
+        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+        className="grid h-full grid-rows-[1fr_auto] lg:grid-cols-[7fr_3fr] lg:grid-rows-1"
+        style={{ pointerEvents: active ? "none" : undefined }}
       >
         <Wordmark />
 
-        <nav
-          aria-label="Sections"
-          className="grid grid-cols-5 lg:grid-cols-1 lg:grid-rows-5"
-        >
-          {BARS.map((bar, i) => {
-            // Hide the active bar in the grid so it doesn't render alongside
-            // the overlay (motion's layoutId animates between the two).
-            if (active === bar.id) return <div key={bar.id} aria-hidden="true" />;
-            return (
-              <motion.button
-                key={bar.id}
-                layoutId={`bar-${bar.id}`}
-                onClick={() => setActive(bar.id)}
-                custom={i}
-                variants={barEnter}
-                initial={reduce ? "visible" : "hidden"}
-                animate="visible"
-                className={`group relative flex items-end justify-center px-2 py-4 sm:px-4 sm:py-5 lg:items-center lg:justify-start lg:px-6 ${bar.fg} font-display tracking-widest hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70`}
-                style={{ backgroundColor: bar.bg }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <span className="text-[10px] sm:text-xs md:text-sm lg:text-base text-center lg:text-left leading-tight">
-                  {bar.label}
-                </span>
-              </motion.button>
-            );
-          })}
-        </nav>
-      </div>
+        <div className="relative">
+          <CurveOverlay />
+          <nav
+            aria-label="Sections"
+            className="relative grid h-full grid-cols-5 lg:grid-cols-1 lg:grid-rows-5"
+          >
+            {BARS.map((bar, i) => {
+              if (active === bar.id) {
+                return <div key={bar.id} aria-hidden="true" />;
+              }
+              return (
+                <motion.button
+                  key={bar.id}
+                  layoutId={`bar-${bar.id}`}
+                  onClick={() => setActive(bar.id)}
+                  custom={i}
+                  variants={barEnter}
+                  initial={reduce ? "visible" : "hidden"}
+                  animate="visible"
+                  className={`group relative flex items-start justify-start p-4 sm:p-5 lg:p-6 ${bar.fg} font-display tracking-widest hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70`}
+                  style={{ backgroundColor: bar.bg }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <span className="flex flex-col leading-[1.05] text-[10px] sm:text-xs md:text-sm lg:text-base">
+                    {bar.label.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </span>
+                </motion.button>
+              );
+            })}
+          </nav>
+        </div>
+      </motion.div>
 
       {/* SECTION OVERLAY */}
       <AnimatePresence>
@@ -106,7 +117,7 @@ export function Stage() {
             <motion.div
               initial={reduce ? { opacity: 1 } : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+              transition={{ delay: 0.45, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
               className={`mx-auto w-full max-w-3xl px-6 py-20 sm:px-10 sm:py-24 ${getBar(active).fg}`}
             >
               <SectionBody id={active} />
