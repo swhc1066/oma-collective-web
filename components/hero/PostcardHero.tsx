@@ -63,32 +63,37 @@ export function PostcardHero() {
           KANEKO<br />1111 JONES ST.<br />OMAHA, NE
         </motion.div>
 
-        <motion.div
-          custom={3} variants={textIn} initial={initial} animate="visible"
-          className="absolute font-display whitespace-nowrap text-[var(--color-white)]"
+        <div
+          className="absolute flex items-baseline gap-[0.4em] whitespace-nowrap"
           style={{
-            ...HERO_TEXT_POS.wordmark,
-            fontSize: "clamp(48px, 11cqh, 220px)",
-            lineHeight: 0.85,
-            letterSpacing: "-0.005em",
-          }}
-        >
-          COLLECTIVE&nbsp;&apos;26
-        </motion.div>
-
-        <motion.div
-          custom={4} variants={textIn} initial={initial} animate="visible"
-          className="absolute font-display text-[var(--color-white)]"
-          style={{
-            left: HERO_TEXT_POS.arts.left,
+            left: HERO_TEXT_POS.wordmark.left,
             bottom: HERO_TEXT_POS.wordmark.bottom,
-            fontSize: "clamp(22px, 4.9cqh, 100px)",
-            lineHeight: 0.95,
           }}
         >
-          <span className="block">THE</span>
-          <span className="block">ARTS</span>
-        </motion.div>
+          <motion.span
+            custom={3} variants={textIn} initial={initial} animate="visible"
+            className="font-display text-[var(--color-white)]"
+            style={{
+              fontSize: "clamp(48px, 11cqh, 220px)",
+              lineHeight: 0.85,
+              letterSpacing: "-0.005em",
+            }}
+          >
+            COLLECTIVE&nbsp;&apos;26
+          </motion.span>
+
+          <motion.span
+            custom={4} variants={textIn} initial={initial} animate="visible"
+            className="font-display text-[var(--color-white)] inline-flex flex-col"
+            style={{
+              fontSize: "clamp(22px, 4.9cqh, 100px)",
+              lineHeight: 0.95,
+            }}
+          >
+            <span>THE</span>
+            <span>ARTS</span>
+          </motion.span>
+        </div>
 
         <motion.div
           custom={5} variants={textIn} initial={initial} animate="visible"
