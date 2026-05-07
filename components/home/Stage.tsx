@@ -76,7 +76,7 @@ export function Stage() {
                   style={{ backgroundColor: bar.bg }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <span className="flex flex-col text-left leading-[1.05] text-[10px] sm:text-xs md:text-sm lg:text-base">
+                  <span className="flex flex-col text-left leading-[1.05] text-xs sm:text-sm md:text-base lg:text-lg">
                     {bar.label.map((line) => (
                       <span key={line} className="block">
                         {line}
