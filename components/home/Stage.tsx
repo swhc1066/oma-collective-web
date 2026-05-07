@@ -89,7 +89,8 @@ export function Stage() {
               );
             })}
           </nav>
-          <CurveOverlay />
+          {/* Curve decorations hidden for now — re-enable when ready. */}
+          {false && <CurveOverlay />}
         </div>
       </motion.div>
 
@@ -148,22 +149,29 @@ export function Stage() {
                     width: "min(23svh, 30vw)",
                     height: "min(23svh, 30vw)",
                     borderTopLeftRadius: "100%",
+                    transformOrigin: "100% 100%",
                   }}
-                  initial={reduce ? { opacity: 1 } : { opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={reduce ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
                   transition={{
                     layout: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
                     opacity: { delay: 1.5, duration: 0.5, ease: [0.2, 0.8, 0.2, 1] },
+                    scale: { delay: 1.5, duration: 0.7, ease: [0.16, 1, 0.3, 1] },
                   }}
                 >
-                  {/* Center the label in the visible quarter-disc area
-                      (bottom-right quadrant of the bounding square). */}
-                  <span className="pointer-events-none absolute bottom-0 right-0 flex h-1/2 w-1/2 items-center justify-center">
-                    <span className="flex flex-col items-center text-center text-sm sm:text-base md:text-lg leading-[1.05]">
-                      {next.label.map((line) => (
-                        <span key={line} className="block">{line}</span>
-                      ))}
-                    </span>
+                  {/* Centered at the visual centroid of a bottom-right
+                      quarter-disc (~42% inset from each adjacent edge). */}
+                  <span
+                    className="pointer-events-none absolute flex flex-col items-center text-center text-sm sm:text-base md:text-lg leading-[1.05]"
+                    style={{
+                      bottom: "32%",
+                      right: "32%",
+                      transform: "translate(50%, 50%)",
+                    }}
+                  >
+                    {next.label.map((line) => (
+                      <span key={line} className="block">{line}</span>
+                    ))}
                   </span>
                 </motion.button>
               );
