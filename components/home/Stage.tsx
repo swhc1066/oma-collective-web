@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion, type Variants } from "motion/react";
 import { Wordmark } from "./Wordmark";
 import { CurveOverlay } from "./CurveOverlay";
-import { BARS, getBar, type SectionId } from "./bars";
+import { BARS, getBar, nextSection, type SectionId } from "./bars";
 import { SectionBody } from "./sections";
 
 const barEnter: Variants = {
@@ -59,7 +59,10 @@ export function Stage() {
             className="relative grid h-full grid-cols-5 lg:grid-cols-1 lg:grid-rows-5"
           >
             {BARS.map((bar, i) => {
-              if (active === bar.id) {
+              // While any section is open, suppress the home-grid bars so
+              // their layoutIds don't collide with the next-link circle's
+              // (which uses the same `bar-${id}` layoutId for the morph).
+              if (active) {
                 return <div key={bar.id} aria-hidden="true" />;
               }
               return (
@@ -124,6 +127,39 @@ export function Stage() {
                 <SectionBody id={active} />
               </motion.div>
             </div>
+
+            {/* NEXT-SECTION QUARTER-CIRCLE LINK (bottom-right). Click → grows to fill the viewport via the new section's layoutId. */}
+            {(() => {
+              const nextId = nextSection(active);
+              const next = getBar(nextId);
+              return (
+                <motion.button
+                  key={`next-${active}`}
+                  layoutId={`bar-${nextId}`}
+                  onClick={() => setActive(nextId)}
+                  aria-label={`Go to ${next.label.join(" ")}`}
+                  className={`fixed bottom-0 right-0 z-20 flex items-end justify-end overflow-hidden font-display tracking-widest hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70 ${next.fg}`}
+                  style={{
+                    backgroundColor: next.bg,
+                    width: "min(46svh, 60vw)",
+                    height: "min(46svh, 60vw)",
+                    borderTopLeftRadius: "100%",
+                  }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <motion.span
+                    initial={reduce ? { opacity: 1 } : { opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                    className="absolute bottom-6 right-6 flex flex-col text-right text-sm sm:text-base md:text-lg leading-[1.05] sm:bottom-8 sm:right-8"
+                  >
+                    {next.label.map((line) => (
+                      <span key={line} className="block">{line}</span>
+                    ))}
+                  </motion.span>
+                </motion.button>
+              );
+            })()}
           </motion.div>
         )}
       </AnimatePresence>

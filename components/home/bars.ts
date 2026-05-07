@@ -57,3 +57,11 @@ export function getBar(id: SectionId): BarConfig {
   if (!bar) throw new Error(`Unknown section id: ${id}`);
   return bar;
 }
+
+/** Section navigation order — used to pick the "next" section for the corner-link CTA. */
+const ORDER: SectionId[] = ["tickets", "event", "show", "venue", "oma"];
+
+export function nextSection(id: SectionId): SectionId {
+  const i = ORDER.indexOf(id);
+  return ORDER[(i + 1) % ORDER.length];
+}
