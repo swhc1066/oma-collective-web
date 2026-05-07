@@ -9,23 +9,28 @@ export function TicketsCTA() {
   // between 60vh and 100vh of scroll.
   const headerOpacity = useTransform(scrollY, [0, 400, 700], [0, 0, 1]);
   const wordmarkOpacity = useTransform(scrollY, [400, 700], [0, 1]);
-  // On hero, sit the bar at 5.5vh so the pill aligns with the postcard's
-  // top text labels (SAVE THE DATE, KANEKO, etc.). Snap to top:0 once the
-  // user scrolls past the hero.
-  const barTop = useTransform(scrollY, [0, 400], ["5.5svh", "0svh"]);
+  // On hero, anchor the pill TOP to the postcard label top (5.5svh). The
+  // pill sits a few px inside the header bar, so offset by ~9px upward.
+  const barTop = useTransform(
+    scrollY,
+    [0, 400],
+    ["calc(5.5svh - 9px)", "0svh"]
+  );
+  // Bar grows taller once the user scrolls into the sticky-header region.
+  const barHeight = useTransform(scrollY, [0, 400, 700], ["3.5rem", "3.5rem", "5rem"]);
 
   return (
     <>
       {/* sticky header bar — fades in once the hero starts leaving */}
       <motion.div
         aria-hidden="true"
-        style={{ opacity: headerOpacity }}
-        className="pointer-events-none fixed inset-x-0 top-0 z-40 h-14 border-b border-white/15 backdrop-blur-sm"
+        style={{ opacity: headerOpacity, height: barHeight }}
+        className="pointer-events-none fixed inset-x-0 top-0 z-40 border-b border-white/15 backdrop-blur-sm"
       />
 
       <motion.header
-        style={{ top: barTop }}
-        className="fixed inset-x-0 z-50 flex h-14 items-center justify-between px-4 sm:px-6"
+        style={{ top: barTop, height: barHeight }}
+        className="fixed inset-x-0 z-50 flex items-center justify-between px-4 sm:px-6"
       >
         <motion.span
           style={{ opacity: wordmarkOpacity }}
