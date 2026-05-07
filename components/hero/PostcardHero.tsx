@@ -18,9 +18,9 @@ export function PostcardHero() {
   const initial = reduce ? "visible" : "hidden";
 
   return (
-    <section className="relative flex h-[100svh] w-screen items-center justify-center overflow-hidden bg-[var(--color-bg-maroon)]">
+    <section className="relative w-screen overflow-hidden bg-[var(--color-bg-maroon)] lg:flex lg:h-[100svh] lg:items-center lg:justify-center">
       <div
-        className="relative overflow-hidden w-[min(100vw,calc(100svh*1.5))] h-[min(100svh,calc(100vw/1.5))] lg:w-screen lg:h-[100svh]"
+        className="relative overflow-hidden w-screen h-[calc(100vw/1.5)] lg:w-screen lg:h-[100svh]"
         style={{ containerType: "size" }}
       >
         <PostcardSVG />
@@ -97,7 +97,7 @@ export function PostcardHero() {
 
         <motion.div
           custom={5} variants={textIn} initial={initial} animate="visible"
-          className="absolute font-display text-[var(--color-rust)]"
+          className="absolute hidden md:block font-display text-[var(--color-rust)]"
           style={{
             ...HERO_TEXT_POS.supporting,
             fontSize: "clamp(10px, 3.1cqh, 26px)",
