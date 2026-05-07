@@ -90,7 +90,7 @@ export function PostcardHero() {
               lineHeight: 0.95,
             }}
           >
-            <span className="absolute bottom-full right-0 leading-none">THE</span>
+            <span className="absolute bottom-full left-0 leading-none">THE</span>
             ARTS
           </motion.span>
         </div>
