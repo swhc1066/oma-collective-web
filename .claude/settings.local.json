@@ -10,7 +10,10 @@
       "Bash(git -C /Users/seancraig/Desktop/Projects/oma-collective-26 -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" add components/sections/BloomSection.tsx)",
       "Bash(git -C /Users/seancraig/Desktop/Projects/oma-collective-26 -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -m \"feat: BloomSection primitive for scroll-driven sections\")",
       "Bash(git -C /Users/seancraig/Desktop/Projects/oma-collective-26 -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" add components/sections/SaveTheDate.tsx components/sections/Schedule.tsx components/sections/Venue.tsx components/sections/AboutWordmark.tsx components/sections/SupportingOMA.tsx)",
-      "Bash(git -C /Users/seancraig/Desktop/Projects/oma-collective-26 -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -m \"feat: five bloom sections \\(Save the Date, Schedule, Venue, About, Supporting\\)\")"
+      "Bash(git -C /Users/seancraig/Desktop/Projects/oma-collective-26 -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -m \"feat: five bloom sections \\(Save the Date, Schedule, Venue, About, Supporting\\)\")",
+      "Bash(git rm *)",
+      "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" add -A)",
+      "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -m \"feat: nav-grid layout — wordmark + 5 clickable bars; click to expand section overlay\" -q)"
     ]
   }
 }
