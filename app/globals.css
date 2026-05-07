@@ -10,60 +10,48 @@
 */
 
 @theme {
-  /* Brand palette — Collective '26 / OMA */
-  --color-cream: #f4ecdf;        /* warm off-white background */
-  --color-lavender: #c8b9c7;     /* dusty muted lavender (top-left circle) */
-  --color-chartreuse: #c4d43f;   /* lime / yellow-green panel */
-  --color-maroon: #5a1e16;       /* deep brick red — primary brand color */
-  --color-teal: #2d6e7e;         /* ocean teal panel */
-  --color-rust: #b14b30;         /* burnt orange ("Supporting the OMA" text) */
-  --color-ink: #1a1410;          /* near-black for body copy on cream */
+  /* Brand palette — locked from docs/design/oma-collective-background.svg */
+  --color-bg-maroon: #62192e;     /* postcard base, dominant brand color */
+  --color-inner-maroon: #7a061f;  /* the bottom-right quarter circle */
+  --color-teal: #016f98;          /* top-right block; Venue section */
+  --color-lavender: #ceb1ff;      /* top-left circle; Save the Date */
+  --color-chartreuse: #9e9e0e;    /* top-middle circle; Schedule */
+  --color-rust: #ef5518;          /* "Supporting the OMA" callout */
+  --color-yellow: #e5e142;        /* SAT/JUNE/SIXTH headline */
+  --color-light-teal: #b5d1ca;    /* KANEKO address text */
+  --color-white: #ffffff;
 
-  /* Typography
-     Bebas Neue is the closest free Google Font to the postcard's condensed
-     all-caps display face. If the postcard designer used a paid face like
-     Druk, Industry, or Surt, swap accordingly in app/layout.tsx and update
-     here. */
-  --font-display: var(--font-bebas), "Impact", "Arial Narrow", sans-serif;
+  /* Typography */
+  --font-display: "dazzle-unicase-bold", "Inter", system-ui, sans-serif;
   --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
 
-  /* Easing curves used by motion variants in lib/animations.ts. Kept here
-     for visual reference; Motion uses cubic-bezier arrays directly. */
+  /* Easing */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-text: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Base resets / globals */
-html {
-  scroll-behavior: smooth;
-}
-
+html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 }
 
 body {
-  background-color: var(--color-cream);
-  color: var(--color-ink);
+  background-color: var(--color-bg-maroon);
+  color: var(--color-white);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Display type — condensed all-caps to echo the postcard */
-.font-display,
-h1,
-h2 {
+.font-display, h1, h2, h3 {
   font-family: var(--font-display);
+  font-weight: 500;
   letter-spacing: 0.01em;
-  line-height: 0.95;
+  line-height: 1.0;
   text-transform: uppercase;
 }
 
-/* Selection color leans into the brand */
 ::selection {
   background-color: var(--color-chartreuse);
-  color: var(--color-maroon);
+  color: var(--color-bg-maroon);
 }
