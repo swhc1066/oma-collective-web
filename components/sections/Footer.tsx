@@ -30,9 +30,6 @@ export function Footer() {
               Facebook
             </a>
           </div>
-          <p className="mt-6 text-xs text-white/55">
-            501(c)(3) nonprofit &middot; EIN {oma.ein}
-          </p>
         </div>
       </div>
     </footer>

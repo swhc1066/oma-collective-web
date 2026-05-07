@@ -42,9 +42,7 @@ export function Tickets() {
       </a>
 
       <p className="mt-12 max-w-prose text-sm text-white/85 leading-relaxed">
-        {event.name} is a fundraising event of the {oma.legalName}, a 501(c)(3)
-        nonprofit (EIN&nbsp;{oma.ein}). A portion of your ticket may be
-        tax&#8209;deductible — consult your tax advisor.
+        {event.name} is a fundraising event of the {oma.legalName}.
       </p>
     </BloomSection>
   );

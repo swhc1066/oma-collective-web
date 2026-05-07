@@ -88,7 +88,6 @@ export const tickets = {
 export const oma = {
   legalName: "Old Market Association of Omaha",
   email: "info@oldmarketassociation.org",
-  ein: "00-0000000",
   socials: {
     instagram: "https://instagram.com/",
     facebook: "https://facebook.com/",

@@ -88,7 +88,7 @@ Rules:
 ### Content (in `lib/content.ts`)
 - [ ] `about.paragraph` — real event description
 - [ ] `mission.paragraphs` — real OMA mission copy
-- [ ] `oma.email`, `oma.ein`, `oma.socials` — real contact info
+- [ ] `oma.email`, `oma.socials` — real contact info
 - [ ] `event.time` — confirm doors / dinner / program times
 
 ### Configuration
