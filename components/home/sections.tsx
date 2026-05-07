@@ -42,12 +42,17 @@ function TicketsBody() {
   return (
     <>
       <Eyebrow className="text-white">Reserve your seat</Eyebrow>
-      <H2 id="section-heading">{tickets.price} <span className="text-2xl sm:text-3xl md:text-4xl text-[var(--color-bg-maroon)]">{tickets.perSeat}</span></H2>
+      <H2 id="section-heading">
+        {tickets.price}{" "}
+        <span className="text-2xl sm:text-3xl md:text-4xl text-[var(--color-bg-maroon)]">
+          {tickets.perSeat}
+        </span>
+      </H2>
 
       <ul className="mt-8 grid gap-3 text-base sm:text-lg text-[var(--color-bg-maroon)]">
         {tickets.includes.map((item) => (
-          <li key={item} className="flex items-baseline gap-3">
-            <span aria-hidden="true" className="font-display">◆</span>
+          <li key={item}>
+            <span aria-hidden="true" className="mr-2 font-display">◆</span>
             {item}
           </li>
         ))}
@@ -67,22 +72,20 @@ function TicketsBody() {
         <H2>{impact.headline}</H2>
         <ul className="mt-8 grid gap-6 sm:gap-8">
           {impact.items.map((item, i) => (
-            <li key={item.title} className="grid grid-cols-[auto_1fr] gap-x-5 gap-y-1 items-baseline text-[var(--color-bg-maroon)]">
-              <span className="font-display text-2xl sm:text-3xl text-white tabular-nums">
+            <li key={item.title} className="text-[var(--color-bg-maroon)]">
+              <span className="block font-display text-2xl sm:text-3xl text-white tabular-nums">
                 0{i + 1}
               </span>
-              <div>
-                <h3 className="font-display text-xl sm:text-2xl">{item.title}</h3>
-                <p className="mt-1 text-base leading-relaxed max-w-prose">
-                  {item.description}
-                </p>
-              </div>
+              <h3 className="mt-1 font-display text-xl sm:text-2xl">{item.title}</h3>
+              <p className="mx-auto mt-1 max-w-prose text-base leading-relaxed">
+                {item.description}
+              </p>
             </li>
           ))}
         </ul>
       </div>
 
-      <p className="mt-12 max-w-prose text-sm text-[var(--color-bg-maroon)]/80 leading-relaxed">
+      <p className="mx-auto mt-12 max-w-prose text-sm text-[var(--color-bg-maroon)]/80 leading-relaxed">
         {event.name} is a fundraising event of the {oma.legalName}.
       </p>
     </>
@@ -95,17 +98,21 @@ function EventBody() {
     <>
       <Eyebrow className="text-[var(--color-rust)]">{intro.eyebrow}</Eyebrow>
       <H2 id="section-heading">A new era of energy, action &amp; impact.</H2>
-      <div className="mt-8 max-w-prose space-y-5 text-base sm:text-lg leading-relaxed">
+      <div className="mx-auto mt-8 max-w-prose space-y-5 text-base sm:text-lg leading-relaxed">
         {intro.paragraphs.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
       </div>
-      <dl className="mt-10 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-base sm:text-lg">
-        <dt className="font-display tracking-widest">When</dt>
-        <dd>{event.date.full}</dd>
-        <dt className="font-display tracking-widest">Where</dt>
-        <dd>{event.venue.name} &middot; {event.venue.addressLine1}, {event.venue.addressLine2}</dd>
-      </dl>
+      <div className="mt-10 grid gap-2 text-base sm:text-lg">
+        <p>
+          <span className="font-display tracking-widest mr-3">When</span>
+          {event.date.full}
+        </p>
+        <p>
+          <span className="font-display tracking-widest mr-3">Where</span>
+          {event.venue.name} &middot; {event.venue.addressLine1}, {event.venue.addressLine2}
+        </p>
+      </div>
     </>
   );
 }
@@ -116,17 +123,23 @@ function RunOfShowBody() {
     <>
       <Eyebrow className="text-[var(--color-yellow)]">The Evening</Eyebrow>
       <H2 id="section-heading">Run of show</H2>
-      <p className="mt-6 max-w-prose text-base sm:text-lg leading-relaxed">
+      <p className="mx-auto mt-6 max-w-prose text-base sm:text-lg leading-relaxed">
         {evening.blurb}
       </p>
-      <dl className="mt-10 grid grid-cols-[auto_1fr] gap-x-6 sm:gap-x-10 gap-y-3 sm:gap-y-4 text-base sm:text-lg">
-        <dt className="font-display tracking-widest">{event.time.doors}</dt>
-        <dd>Doors &amp; cocktails</dd>
-        <dt className="font-display tracking-widest">{event.time.dinner}</dt>
-        <dd>Seated dinner</dd>
-        <dt className="font-display tracking-widest">{event.time.program}</dt>
-        <dd>Program &amp; remarks</dd>
-      </dl>
+      <div className="mt-10 grid gap-3 text-base sm:text-lg">
+        <p>
+          <span className="font-display tracking-widest mr-3">{event.time.doors}</span>
+          Doors &amp; cocktails
+        </p>
+        <p>
+          <span className="font-display tracking-widest mr-3">{event.time.dinner}</span>
+          Seated dinner
+        </p>
+        <p>
+          <span className="font-display tracking-widest mr-3">{event.time.program}</span>
+          Program &amp; remarks
+        </p>
+      </div>
     </>
   );
 }
@@ -143,10 +156,10 @@ function VenueBody() {
         {event.venue.addressLine1}<br />
         {event.venue.addressLine2}
       </address>
-      <p className="mt-6 max-w-prose text-base leading-relaxed">
+      <p className="mx-auto mt-6 max-w-prose text-base leading-relaxed">
         {event.venue.parking}
       </p>
-      <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+      <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm">
         <a className="underline underline-offset-4 hover:text-white" href={event.venue.mapsUrl} target="_blank" rel="noopener noreferrer">
           Get directions →
         </a>
@@ -164,7 +177,7 @@ function AboutOMABody() {
     <>
       <Eyebrow className="text-[var(--color-rust)]">About the OMA</Eyebrow>
       <H2 id="section-heading">{mission.heading}</H2>
-      <div className="mt-8 max-w-prose space-y-5 text-base sm:text-lg leading-relaxed">
+      <div className="mx-auto mt-8 max-w-prose space-y-5 text-base sm:text-lg leading-relaxed">
         {mission.paragraphs.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
@@ -173,7 +186,7 @@ function AboutOMABody() {
         <a className="underline underline-offset-4 hover:text-[var(--color-rust)]" href={`mailto:${oma.email}`}>
           {oma.email}
         </a>
-        <div className="flex gap-5">
+        <div className="flex flex-wrap justify-center gap-5">
           <a className="underline underline-offset-4 hover:text-[var(--color-rust)]" href={oma.socials.instagram} target="_blank" rel="noopener noreferrer">
             Instagram
           </a>

@@ -114,14 +114,16 @@ export function Stage() {
               </svg>
             </button>
 
-            <motion.div
-              initial={reduce ? { opacity: 1 } : { opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-              className={`mx-auto w-full max-w-3xl px-6 py-20 sm:px-10 sm:py-24 ${getBar(active).fg}`}
-            >
-              <SectionBody id={active} />
-            </motion.div>
+            <div className="flex min-h-full items-center justify-center px-6 py-20 sm:px-10 sm:py-24">
+              <motion.div
+                initial={reduce ? { opacity: 1 } : { opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+                className={`w-full max-w-3xl text-center ${getBar(active).fg}`}
+              >
+                <SectionBody id={active} />
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
