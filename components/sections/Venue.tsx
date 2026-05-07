@@ -1,0 +1,25 @@
+import { BloomSection } from "./BloomSection";
+import { event } from "@/lib/content";
+
+export function Venue() {
+  return (
+    <BloomSection id="venue" shape="teal" textColor="text-[var(--color-light-teal)]">
+      <p className="font-display text-sm tracking-[0.3em] text-white">THE VENUE</p>
+      <h2 id="venue-heading" className="mt-6 font-display text-6xl sm:text-8xl text-white">
+        {event.venue.name}
+      </h2>
+      <address className="mt-6 not-italic text-lg">
+        {event.venue.addressLine1}<br />
+        {event.venue.addressLine2}
+      </address>
+      <div className="mt-10 flex gap-6 text-sm">
+        <a className="underline underline-offset-4 hover:text-white" href={event.venue.mapsUrl} target="_blank" rel="noopener noreferrer">
+          Get directions →
+        </a>
+        <a className="underline underline-offset-4 hover:text-white" href={event.venue.website} target="_blank" rel="noopener noreferrer">
+          About Kaneko →
+        </a>
+      </div>
+    </BloomSection>
+  );
+}
