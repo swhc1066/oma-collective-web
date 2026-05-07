@@ -16,7 +16,10 @@ export function Wordmark() {
   const initial = reduce ? "visible" : "hidden";
 
   return (
-    <div className="relative flex h-full w-full flex-col justify-end px-5 pb-8 sm:px-10 sm:pb-12 lg:pb-16">
+    <div
+      className="relative flex h-full w-full min-w-0 flex-col justify-end overflow-hidden px-5 pb-8 sm:px-10 sm:pb-12 lg:pb-16"
+      style={{ containerType: "inline-size" }}
+    >
       <div className="flex items-baseline gap-[0.6em] whitespace-nowrap">
         <motion.span
           custom={0}
@@ -25,7 +28,7 @@ export function Wordmark() {
           animate="visible"
           className="font-display text-white"
           style={{
-            fontSize: "clamp(48px, 11vw, 200px)",
+            fontSize: "clamp(40px, 13cqi, 180px)",
             lineHeight: 0.85,
             letterSpacing: "-0.005em",
           }}
@@ -40,7 +43,7 @@ export function Wordmark() {
           animate="visible"
           className="relative inline-block font-display text-white"
           style={{
-            fontSize: "clamp(20px, 4.4vw, 80px)",
+            fontSize: "clamp(18px, 5.2cqi, 72px)",
             lineHeight: 0.95,
           }}
         >
