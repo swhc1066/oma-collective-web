@@ -121,14 +121,18 @@ export function Stage() {
               <motion.div
                 initial={reduce ? { opacity: 1 } : { opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+                transition={{ delay: 0.85, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
                 className={`w-full max-w-3xl text-center ${getBar(active).fg}`}
               >
                 <SectionBody id={active} />
               </motion.div>
             </div>
 
-            {/* NEXT-SECTION QUARTER-CIRCLE LINK (bottom-right). Click → grows to fill the viewport via the new section's layoutId. */}
+            {/* NEXT-SECTION QUARTER-CIRCLE LINK (bottom-right).
+                Sequence per click:
+                  1. layoutId morphs the circle to fill the new section (~0.8s)
+                  2. New section copy fades in (delay 0.85s)
+                  3. New next-circle fades in (delay 1.5s) */}
             {(() => {
               const nextId = nextSection(active);
               const next = getBar(nextId);
@@ -138,25 +142,29 @@ export function Stage() {
                   layoutId={`bar-${nextId}`}
                   onClick={() => setActive(nextId)}
                   aria-label={`Go to ${next.label.join(" ")}`}
-                  className={`fixed bottom-0 right-0 z-20 flex items-end justify-end overflow-hidden font-display tracking-widest hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70 ${next.fg}`}
+                  className={`fixed bottom-0 right-0 z-20 overflow-hidden font-display tracking-widest hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70 ${next.fg}`}
                   style={{
                     backgroundColor: next.bg,
-                    width: "min(46svh, 60vw)",
-                    height: "min(46svh, 60vw)",
+                    width: "min(23svh, 30vw)",
+                    height: "min(23svh, 30vw)",
                     borderTopLeftRadius: "100%",
                   }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  initial={reduce ? { opacity: 1 } : { opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    layout: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+                    opacity: { delay: 1.5, duration: 0.5, ease: [0.2, 0.8, 0.2, 1] },
+                  }}
                 >
-                  <motion.span
-                    initial={reduce ? { opacity: 1 } : { opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6, duration: 0.5 }}
-                    className="absolute bottom-6 right-6 flex flex-col text-right text-sm sm:text-base md:text-lg leading-[1.05] sm:bottom-8 sm:right-8"
-                  >
-                    {next.label.map((line) => (
-                      <span key={line} className="block">{line}</span>
-                    ))}
-                  </motion.span>
+                  {/* Center the label in the visible quarter-disc area
+                      (bottom-right quadrant of the bounding square). */}
+                  <span className="pointer-events-none absolute bottom-0 right-0 flex h-1/2 w-1/2 items-center justify-center">
+                    <span className="flex flex-col items-center text-center text-sm sm:text-base md:text-lg leading-[1.05]">
+                      {next.label.map((line) => (
+                        <span key={line} className="block">{line}</span>
+                      ))}
+                    </span>
+                  </span>
                 </motion.button>
               );
             })()}
