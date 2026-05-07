@@ -28,7 +28,8 @@ export const event = {
       "Public lots and on-street parking on 11th and Jones. Valet available the night of the event.",
   },
   ticketsUrl:
-    process.env.NEXT_PUBLIC_TICKETS_URL ?? "#tickets-not-configured",
+    process.env.NEXT_PUBLIC_TICKETS_URL ??
+    "https://www.zeffy.com/en-US/ticketing/collective--26-2",
 } as const;
 
 export const intro = {
