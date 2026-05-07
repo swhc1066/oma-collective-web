@@ -18,10 +18,14 @@ export function PostcardHero() {
   const initial = reduce ? "visible" : "hidden";
 
   return (
-    <section className="relative h-[100svh] w-screen overflow-hidden bg-[var(--color-bg-maroon)]">
+    <section className="relative flex h-[100svh] w-screen items-center justify-center overflow-hidden bg-[var(--color-bg-maroon)]">
       <div
-        className="relative h-full w-full overflow-hidden"
-        style={{ containerType: "size" }}
+        className="relative overflow-hidden"
+        style={{
+          width: "min(100vw, calc(100svh * 1.5))",
+          height: "min(100svh, calc(100vw / 1.5))",
+          containerType: "size",
+        }}
       >
         <PostcardSVG />
 
@@ -30,7 +34,7 @@ export function PostcardHero() {
           className="absolute font-display text-[var(--color-bg-maroon)]"
           style={{
             ...HERO_TEXT_POS.saveTheDate,
-            fontSize: "clamp(11px, min(3.1cqh, 2.6vw), 28px)",
+            fontSize: "clamp(10px, 3.1cqh, 30px)",
             lineHeight: 1.2,
           }}
         >
@@ -42,7 +46,7 @@ export function PostcardHero() {
           className="absolute font-display text-[var(--color-yellow)]"
           style={{
             ...HERO_TEXT_POS.when,
-            fontSize: "clamp(11px, min(3.1cqh, 2.6vw), 28px)",
+            fontSize: "clamp(10px, 3.1cqh, 30px)",
             lineHeight: 1.2,
           }}
         >
@@ -56,7 +60,7 @@ export function PostcardHero() {
           className="absolute font-display text-[var(--color-light-teal)]"
           style={{
             ...HERO_TEXT_POS.where,
-            fontSize: "clamp(11px, min(3.1cqh, 2.6vw), 28px)",
+            fontSize: "clamp(10px, 3.1cqh, 30px)",
             lineHeight: 1.2,
           }}
         >
@@ -74,7 +78,7 @@ export function PostcardHero() {
             custom={3} variants={textIn} initial={initial} animate="visible"
             className="font-display text-[var(--color-white)]"
             style={{
-              fontSize: "clamp(36px, min(11cqh, 12vw), 220px)",
+              fontSize: "clamp(36px, 11cqh, 220px)",
               lineHeight: 0.85,
               letterSpacing: "-0.005em",
             }}
@@ -86,7 +90,7 @@ export function PostcardHero() {
             custom={4} variants={textIn} initial={initial} animate="visible"
             className="relative inline-block font-display text-[var(--color-white)]"
             style={{
-              fontSize: "clamp(16px, min(4.9cqh, 5.4vw), 100px)",
+              fontSize: "clamp(16px, 4.9cqh, 100px)",
               lineHeight: 0.95,
             }}
           >
@@ -100,7 +104,7 @@ export function PostcardHero() {
           className="absolute font-display text-[var(--color-rust)]"
           style={{
             ...HERO_TEXT_POS.supporting,
-            fontSize: "clamp(11px, min(3.1cqh, 2.6vw), 26px)",
+            fontSize: "clamp(10px, 3.1cqh, 26px)",
             lineHeight: 1.2,
           }}
         >
