@@ -7,12 +7,12 @@ export function Impact() {
       <p className="font-display text-sm tracking-[0.3em] text-[var(--color-yellow)]">
         {impact.eyebrow}
       </p>
-      <h2 id="impact-heading" className="mt-6 font-display text-5xl sm:text-7xl leading-[0.9] max-w-2xl">
+      <h2 id="impact-heading" className="mt-6 font-display text-4xl sm:text-6xl md:text-7xl leading-[0.95] sm:leading-[0.9] max-w-2xl">
         {impact.headline}
       </h2>
-      <ul className="mt-12 grid gap-10 sm:gap-12">
+      <ul className="mt-10 sm:mt-12 grid gap-8 sm:gap-12">
         {impact.items.map((item, i) => (
-          <li key={item.title} className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-2 items-baseline">
+          <li key={item.title} className="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 gap-y-2 items-baseline">
             <span className="font-display text-3xl sm:text-4xl text-[var(--color-yellow)] tabular-nums">
               0{i + 1}
             </span>

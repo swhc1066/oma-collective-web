@@ -30,7 +30,7 @@ export function PostcardHero() {
           className="absolute font-display text-[var(--color-bg-maroon)]"
           style={{
             ...HERO_TEXT_POS.saveTheDate,
-            fontSize: "clamp(10px, 3.1cqh, 34px)",
+            fontSize: "clamp(11px, min(3.1cqh, 2.6vw), 28px)",
             lineHeight: 1.2,
           }}
         >
@@ -42,7 +42,7 @@ export function PostcardHero() {
           className="absolute font-display text-[var(--color-yellow)]"
           style={{
             ...HERO_TEXT_POS.when,
-            fontSize: "clamp(10px, 3.1cqh, 34px)",
+            fontSize: "clamp(11px, min(3.1cqh, 2.6vw), 28px)",
             lineHeight: 1.2,
           }}
         >
@@ -56,7 +56,7 @@ export function PostcardHero() {
           className="absolute font-display text-[var(--color-light-teal)]"
           style={{
             ...HERO_TEXT_POS.where,
-            fontSize: "clamp(10px, 3.1cqh, 34px)",
+            fontSize: "clamp(11px, min(3.1cqh, 2.6vw), 28px)",
             lineHeight: 1.2,
           }}
         >
@@ -74,7 +74,7 @@ export function PostcardHero() {
             custom={3} variants={textIn} initial={initial} animate="visible"
             className="font-display text-[var(--color-white)]"
             style={{
-              fontSize: "clamp(48px, 11cqh, 220px)",
+              fontSize: "clamp(36px, min(11cqh, 12vw), 220px)",
               lineHeight: 0.85,
               letterSpacing: "-0.005em",
             }}
@@ -86,7 +86,7 @@ export function PostcardHero() {
             custom={4} variants={textIn} initial={initial} animate="visible"
             className="relative inline-block font-display text-[var(--color-white)]"
             style={{
-              fontSize: "clamp(22px, 4.9cqh, 100px)",
+              fontSize: "clamp(16px, min(4.9cqh, 5.4vw), 100px)",
               lineHeight: 0.95,
             }}
           >
@@ -100,7 +100,7 @@ export function PostcardHero() {
           className="absolute font-display text-[var(--color-rust)]"
           style={{
             ...HERO_TEXT_POS.supporting,
-            fontSize: "clamp(10px, 3.1cqh, 30px)",
+            fontSize: "clamp(11px, min(3.1cqh, 2.6vw), 26px)",
             lineHeight: 1.2,
           }}
         >

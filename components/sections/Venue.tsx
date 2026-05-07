@@ -5,7 +5,7 @@ export function Venue() {
   return (
     <BloomSection id="venue" shape="teal" textColor="text-[var(--color-light-teal)]">
       <p className="font-display text-sm tracking-[0.3em] text-white">The Venue</p>
-      <h2 id="venue-heading" className="mt-6 font-display text-6xl sm:text-8xl text-white">
+      <h2 id="venue-heading" className="mt-6 font-display text-5xl sm:text-7xl md:text-8xl text-white">
         {event.venue.name}
       </h2>
       <address className="mt-6 not-italic text-lg">

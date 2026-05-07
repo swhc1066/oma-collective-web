@@ -35,7 +35,7 @@ function LeadingCurve({ shape, fill }: { shape: BloomShape; fill: string }) {
       viewBox="0 0 100 30"
       preserveAspectRatio="none"
       aria-hidden="true"
-      className="absolute -top-px left-0 h-[14svh] w-full"
+      className="absolute -top-px left-0 h-[8svh] sm:h-[14svh] w-full"
     >
       <path d={path} fill={fill} />
     </svg>
@@ -72,7 +72,7 @@ export function BloomSection({
       ref={ref}
       id={id}
       aria-labelledby={`${id}-heading`}
-      className={`relative flex min-h-[100svh] w-full items-center justify-center px-6 py-24 sm:px-10 ${textColor}`}
+      className={`relative flex min-h-[100svh] w-full items-center justify-center px-5 py-20 sm:px-10 sm:py-24 ${textColor}`}
       style={{ backgroundColor: fill, ...style }}
     >
       <LeadingCurve shape={shape} fill={fill} />

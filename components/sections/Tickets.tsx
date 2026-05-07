@@ -12,16 +12,16 @@ export function Tickets() {
         Reserve your seat
       </p>
 
-      <div className="mt-8 flex flex-wrap items-baseline gap-x-6 gap-y-2">
-        <span className="font-display text-7xl sm:text-9xl leading-none">
+      <div className="mt-6 sm:mt-8 flex flex-wrap items-baseline gap-x-4 sm:gap-x-6 gap-y-2">
+        <span className="font-display text-6xl sm:text-8xl md:text-9xl leading-none">
           {tickets.price}
         </span>
-        <span className="font-display text-2xl sm:text-3xl tracking-wide text-[var(--color-bg-maroon)]">
+        <span className="font-display text-xl sm:text-2xl md:text-3xl tracking-wide text-[var(--color-bg-maroon)]">
           {tickets.perSeat}
         </span>
       </div>
 
-      <ul className="mt-10 grid gap-3 text-lg">
+      <ul className="mt-8 sm:mt-10 grid gap-3 text-base sm:text-lg">
         {tickets.includes.map((item) => (
           <li key={item} className="flex items-baseline gap-3">
             <span aria-hidden="true" className="text-[var(--color-bg-maroon)] font-display">
@@ -36,12 +36,12 @@ export function Tickets() {
         href={event.ticketsUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-12 inline-flex items-center gap-3 rounded-full bg-[var(--color-bg-maroon)] px-10 py-5 font-display text-lg tracking-widest text-white transition hover:bg-[var(--color-inner-maroon)] focus-visible:outline-2 focus-visible:outline-white"
+        className="mt-10 sm:mt-12 inline-flex items-center gap-3 rounded-full bg-[var(--color-bg-maroon)] px-8 sm:px-10 py-4 sm:py-5 font-display text-base sm:text-lg tracking-widest text-white transition hover:bg-[var(--color-inner-maroon)] focus-visible:outline-2 focus-visible:outline-white"
       >
         BUY TICKETS →
       </a>
 
-      <p className="mt-12 max-w-prose text-sm text-white/85 leading-relaxed">
+      <p className="mt-10 sm:mt-12 max-w-prose text-sm text-white/85 leading-relaxed">
         {event.name} is a fundraising event of the {oma.legalName}.
       </p>
     </BloomSection>
