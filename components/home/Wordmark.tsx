@@ -28,7 +28,7 @@ export function Wordmark() {
           animate="visible"
           className="font-display text-white"
           style={{
-            fontSize: "clamp(40px, 13cqi, 180px)",
+            fontSize: "clamp(36px, 10.5cqi, 150px)",
             lineHeight: 0.85,
             letterSpacing: "-0.005em",
           }}
@@ -43,7 +43,7 @@ export function Wordmark() {
           animate="visible"
           className="relative inline-block font-display text-white"
           style={{
-            fontSize: "clamp(18px, 5.2cqi, 72px)",
+            fontSize: "clamp(16px, 4.2cqi, 60px)",
             lineHeight: 0.95,
           }}
         >
