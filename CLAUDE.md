@@ -67,21 +67,21 @@ Defined as Tailwind tokens in `app/globals.css`. **Locked from
 
 ## Animation philosophy
 
-Subtle. Choreographed. **Restrained.** Read `lib/animations.ts` for the
-shared variants.
+Subtle. Choreographed. **Restrained.** Motion variants live with the
+component that uses them (no shared `lib/animations.ts` — colocate).
 
 Rules:
 
-1. **Always** wrap motion in `useMotionSafeVariants()` (see
-   `lib/useMotionSafeVariants.ts`). Users with `prefers-reduced-motion: reduce`
-   should see content instantly.
+1. **Always** gate motion with `useReducedMotion()` from `motion/react`.
+   Users with `prefers-reduced-motion: reduce` get the final state instantly.
 2. **No parallax. No scroll-jacking. No horizontal scroll gimmicks.**
-3. On-load animation runs once on mount. On-scroll animations use
-   `whileInView` with `viewport={{ once: true }}`.
-4. Easing: prefer `easeOutExpo` for entrances. Don't use spring physics for
-   this brand — too playful.
-5. Total hero on-load choreography target: **1.2–1.6 seconds**. If it feels
-   longer, it's too long.
+3. Hero on-load animation runs once on mount. Scroll-bloom sections use
+   `useScroll` + `useTransform` (Motion) bound to the section's own viewport
+   progress, so they reverse cleanly when scrolling back up.
+4. Easing: `cubic-bezier(0.16, 1, 0.3, 1)` (out-expo) for shape entrances,
+   `cubic-bezier(0.2, 0.8, 0.2, 1)` for text. No spring physics for this
+   brand — too playful.
+5. Total hero on-load choreography target: **~1.5 seconds**.
 
 ## Known placeholders — replace before launch
 
