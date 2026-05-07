@@ -54,7 +54,6 @@ export function Stage() {
         <Wordmark />
 
         <div className="relative">
-          <CurveOverlay />
           <nav
             aria-label="Sections"
             className="relative grid h-full grid-cols-5 lg:grid-cols-1 lg:grid-rows-5"
@@ -87,6 +86,7 @@ export function Stage() {
               );
             })}
           </nav>
+          <CurveOverlay />
         </div>
       </motion.div>
 

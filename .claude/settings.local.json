@@ -17,7 +17,8 @@
       "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -m \"feat: nav 30% width, multi-line top-left labels, fade home on open, decorative curves between bars\" -q)",
       "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -am \"style: explicit text-left on bar labels\" -q)",
       "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -am \"style: bump nav label sizes one step \\(≈20%\\)\" -q)",
-      "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -am \"style: center section content vertically and horizontally\" -q)"
+      "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -am \"style: center section content vertically and horizontally\" -q)",
+      "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -am \"fix: render curve overlay above nav bars so it's visible at rest\" -q)"
     ]
   }
 }
