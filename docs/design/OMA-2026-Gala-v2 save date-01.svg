@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 432 288">
+  <!-- Generator: Adobe Illustrator 30.3.0, SVG Export Plug-In . SVG Version: 2.1.3 Build 182)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1, .st2 {
+        fill: #62192e;
+      }
+
+      .st1, .st3, .st4, .st5, .st6, .st7 {
+        font-family: DazzleUnicase-Medium, 'DazzleUnicase Medium';
+        font-weight: 500;
+      }
+
+      .st1, .st4, .st5, .st6 {
+        font-size: 9px;
+      }
+
+      .st8 {
+        fill: #9e9e0e;
+      }
+
+      .st9 {
+        fill: #ceb1ff;
+      }
+
+      .st3 {
+        font-size: 11.35px;
+      }
+
+      .st3, .st7 {
+        fill: #fff;
+      }
+
+      .st10 {
+        clip-path: url(#clippath-1);
+      }
+
+      .st11 {
+        fill: #016f98;
+      }
+
+      .st12 {
+        fill: #7a061f;
+      }
+
+      .st4 {
+        fill: #b5d1ca;
+      }
+
+      .st5 {
+        fill: #ef5518;
+      }
+
+      .st6 {
+        fill: #e5e142;
+      }
+
+      .st7 {
+        font-size: 28px;
+      }
+    </style>
+    <clipPath id="clippath-1">
+      <rect class="st0" x="-10" y="-10" width="452" height="308"/>
+    </clipPath>
+  </defs>
+  <g class="st10">
+    <rect class="st2" x="-10" y="-10" width="452" height="308"/>
+    <rect class="st11" x="288" y="-10" width="154" height="308" transform="translate(730 288) rotate(180)"/>
+    <path class="st9" d="M0-144.06V143.94C79.53,143.94,144,79.47,144-.06S79.53-144.06,0-144.06Z"/>
+    <path class="st9" d="M0-144.06V143.94C-79.52,143.94-143.99,79.47-143.99-.06S-79.52-144.06,0-144.06Z"/>
+    <path class="st8" d="M287.96-143.92V144.08C208.43,144.08,143.96,79.61,143.96.08s64.47-144,144-144Z"/>
+    <path class="st12" d="M288,144.08v288c79.53,0,144-64.47,144-144s-64.47-144-144-144Z"/>
+  </g>
+  <text class="st1" transform="translate(16 22.39)"><tspan x="0" y="0">SAVE </tspan><tspan x="0" y="10.8">THE </tspan><tspan x="0" y="21.6">DATE</tspan></text>
+  <text class="st4" transform="translate(304.1 22.39)"><tspan x="0" y="0">KANEKO</tspan><tspan x="0" y="10.8">1111 JONES ST.</tspan><tspan x="0" y="21.6">OMAHA, NE</tspan></text>
+  <text class="st6" transform="translate(230.73 22.39)"><tspan x="0" y="0">SATURDAY</tspan><tspan x="21.95" y="10.8">JUNE</tspan><tspan x="19.39" y="21.6">SIXTH</tspan></text>
+  <text class="st3" transform="translate(253.56 258.33)"><tspan x="0" y="0">THE</tspan><tspan x="-4.56" y="13.62">ARTs</tspan></text>
+  <text class="st5" transform="translate(304.1 261.15)"><tspan x="0" y="0">SUPPORTING </tspan><tspan x="0" y="10.8">THE OMA</tspan></text>
+  <text class="st7" transform="translate(16 271.95)"><tspan x="0" y="0">COLLECTIVE ‘26</tspan></text>
+</svg>

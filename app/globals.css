@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+/*
+  Tailwind v4 uses a CSS-first config. Design tokens defined in @theme become
+  Tailwind utility classes (e.g. bg-cream, text-maroon, font-display).
+
+  COLORS are eyeballed from the save-the-date postcard. Replace with exact
+  brand hex values once we have the original art file from the postcard
+  designer. See CLAUDE.md > "Color palette" for the canonical source.
+*/
+
+@theme {
+  /* Brand palette — Collective '26 / OMA */
+  --color-cream: #f4ecdf;        /* warm off-white background */
+  --color-lavender: #c8b9c7;     /* dusty muted lavender (top-left circle) */
+  --color-chartreuse: #c4d43f;   /* lime / yellow-green panel */
+  --color-maroon: #5a1e16;       /* deep brick red — primary brand color */
+  --color-teal: #2d6e7e;         /* ocean teal panel */
+  --color-rust: #b14b30;         /* burnt orange ("Supporting the OMA" text) */
+  --color-ink: #1a1410;          /* near-black for body copy on cream */
+
+  /* Typography
+     Bebas Neue is the closest free Google Font to the postcard's condensed
+     all-caps display face. If the postcard designer used a paid face like
+     Druk, Industry, or Surt, swap accordingly in app/layout.tsx and update
+     here. */
+  --font-display: var(--font-bebas), "Impact", "Arial Narrow", sans-serif;
+  --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  /* Easing curves used by motion variants in lib/animations.ts. Kept here
+     for visual reference; Motion uses cubic-bezier arrays directly. */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Base resets / globals */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display type — condensed all-caps to echo the postcard */
+.font-display,
+h1,
+h2 {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+/* Selection color leans into the brand */
+::selection {
+  background-color: var(--color-chartreuse);
+  color: var(--color-maroon);
+}
