@@ -84,14 +84,14 @@ export function PostcardHero() {
 
           <motion.span
             custom={4} variants={textIn} initial={initial} animate="visible"
-            className="font-display text-[var(--color-white)] inline-flex flex-col"
+            className="relative inline-block font-display text-[var(--color-white)]"
             style={{
               fontSize: "clamp(22px, 4.9cqh, 100px)",
               lineHeight: 0.95,
             }}
           >
-            <span>THE</span>
-            <span>ARTS</span>
+            <span className="absolute bottom-full left-0 leading-none">THE</span>
+            ARTS
           </motion.span>
         </div>
 
