@@ -19,6 +19,7 @@ stays in `lib/content.ts`.
 - **Shapes-only SVG:** `docs/design/oma-collective-background.svg`
 - **Shapes + text SVG:** `docs/design/oma-collective-background-text.svg`
 
+
 The shapes-only SVG is the canonical geometry. The hero will inline its paths
 directly so geometry is exact at any viewport size.
 

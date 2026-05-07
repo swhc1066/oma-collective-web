@@ -1,12 +1,11 @@
 @import "tailwindcss";
 
 /*
-  Tailwind v4 uses a CSS-first config. Design tokens defined in @theme become
-  Tailwind utility classes (e.g. bg-cream, text-maroon, font-display).
+  Tailwind v4 CSS-first config. Tokens in @theme become Tailwind utilities
+  (e.g. bg-bg-maroon, text-yellow, font-display).
 
-  COLORS are eyeballed from the save-the-date postcard. Replace with exact
-  brand hex values once we have the original art file from the postcard
-  designer. See CLAUDE.md > "Color palette" for the canonical source.
+  Palette and display font are LOCKED from
+  docs/design/oma-collective-background.svg. See CLAUDE.md.
 */
 
 @theme {
