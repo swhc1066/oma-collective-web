@@ -41,32 +41,29 @@ postcard?" If not, reconsider.
 
 ## Color palette
 
-Defined as Tailwind tokens in `app/globals.css`. **Values are eyeballed from
-a photo of the printed postcard** — replace with exact brand hex values once
-the original art file is available.
+Defined as Tailwind tokens in `app/globals.css`. **Locked from
+`docs/design/oma-collective-background.svg`.**
 
-| Token | Hex (approx) | Use |
-|---|---|---|
-| `cream` | `#f4ecdf` | primary background, light text on dark |
-| `lavender` | `#c8b9c7` | dusty lavender accent shape |
-| `chartreuse` | `#c4d43f` | bright lime accent / Tickets section bg |
-| `maroon` | `#5a1e16` | primary brand color, dark backgrounds, headlines |
-| `teal` | `#2d6e7e` | teal accent shape |
-| `rust` | `#b14b30` | "Supporting the OMA" callout color, links |
-| `ink` | `#1a1410` | body text on cream |
-
-⚠️ **Contrast watch list.** Cream-on-teal and cream-on-chartreuse both run
-close to WCAG AA failure depending on type size. If you place body text on
-those colors, run a contrast checker before shipping.
+| Token            | Hex       | Use                                                |
+|------------------|-----------|----------------------------------------------------|
+| `bg-maroon`      | `#62192e` | postcard base, page background                     |
+| `inner-maroon`   | `#7a061f` | bottom-right quarter-circle, "Supporting" section  |
+| `teal`           | `#016f98` | top-right block, Venue section                     |
+| `lavender`       | `#ceb1ff` | top-left circle, Save the Date section             |
+| `chartreuse`     | `#9e9e0e` | top-middle circle, Schedule section                |
+| `rust`           | `#ef5518` | "Supporting the OMA" callout                       |
+| `yellow`         | `#e5e142` | SAT/JUNE/SIXTH headline                            |
+| `light-teal`     | `#b5d1ca` | KANEKO address text                                |
+| `white`          | `#ffffff` | wordmark, body text on dark                        |
 
 ## Typography
 
-- Display face: **Bebas Neue** (Google Fonts) — closest free match to the
-  postcard. Loaded via `next/font/google` in `app/layout.tsx`.
-- Body face: **Inter** — neutral, readable, pairs well with Bebas.
-- If the user obtains the actual font from the postcard designer (might be
-  Druk, Industry, Surt, or similar), swap it in `layout.tsx` and update
-  the `--font-display` CSS variable.
+- Display face: **dazzle-unicase-bold** (Adobe Fonts kit `bug3big`),
+  weight 500 (Medium). Loaded via `<link rel="stylesheet" href="https://use.typekit.net/bug3big.css">`
+  in `app/layout.tsx`.
+- Body face: **Inter** (Google Fonts) for any non-display copy.
+- All postcard text uses Dazzle Unicase per the source SVG. Don't substitute
+  Bebas Neue or other fallbacks.
 
 ## Animation philosophy
 
@@ -88,31 +85,15 @@ Rules:
 
 ## Known placeholders — replace before launch
 
-These are tracked here so they aren't forgotten:
-
 ### Content (in `lib/content.ts`)
 - [ ] `about.paragraph` — real event description
 - [ ] `mission.paragraphs` — real OMA mission copy
-- [ ] `ticketTiers` — confirm prices and what's included with the OMA board
 - [ ] `oma.email`, `oma.ein`, `oma.socials` — real contact info
 - [ ] `event.time` — confirm doors / dinner / program times
 
-### Assets
-- [ ] `public/shapes/*.svg` — replace inline placeholder shapes with real
-      vector art exported from the postcard designer's source file. See
-      `public/shapes/README.md` for the asset spec.
-- [ ] `public/logos/oma.svg` — OMA logo
-- [ ] `public/logos/kaneko.svg` — Kaneko logo (with permission)
-- [ ] `public/og-image.png` — 1200x630 social share image
-- [ ] `public/favicon.ico` — favicon based on OMA mark
-
 ### Configuration
 - [ ] `metadataBase` URL in `app/layout.tsx` — replace `https://example.com`
-      with the real domain
-- [ ] OG `url` in `app/layout.tsx`
 - [ ] `.env.local` — set `NEXT_PUBLIC_TICKETS_URL` to the real ticket page
-      (Zeffy, Givebutter, Donorbox, Eventbrite — TBD by board)
-- [ ] Per-tier ticket URLs if multiple tiers go to different ticket pages
 
 ## Code conventions
 
