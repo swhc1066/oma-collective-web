@@ -80,8 +80,9 @@ export function PostcardHero() {
           custom={4} variants={textIn} initial={initial} animate="visible"
           className="absolute font-display text-[var(--color-white)]"
           style={{
-            ...HERO_TEXT_POS.arts,
-            fontSize: "clamp(20px, 7.5cqh, 100px)",
+            left: HERO_TEXT_POS.arts.left,
+            bottom: HERO_TEXT_POS.wordmark.bottom,
+            fontSize: "clamp(22px, 4.9cqh, 100px)",
             lineHeight: 0.95,
           }}
         >
