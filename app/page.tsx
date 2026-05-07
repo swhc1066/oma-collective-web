@@ -1,21 +1,25 @@
 import { PostcardHero } from "@/components/hero/PostcardHero";
 import { TicketsCTA } from "@/components/hero/TicketsCTA";
-import { SaveTheDate } from "@/components/sections/SaveTheDate";
+import { Intro } from "@/components/sections/Intro";
 import { Schedule } from "@/components/sections/Schedule";
 import { Venue } from "@/components/sections/Venue";
-import { AboutWordmark } from "@/components/sections/AboutWordmark";
-import { SupportingOMA } from "@/components/sections/SupportingOMA";
+import { Impact } from "@/components/sections/Impact";
+import { AboutOMA } from "@/components/sections/AboutOMA";
+import { Tickets } from "@/components/sections/Tickets";
+import { Footer } from "@/components/sections/Footer";
 
 export default function Page() {
   return (
     <main>
       <TicketsCTA />
       <PostcardHero />
-      <SaveTheDate />
+      <Intro />
       <Schedule />
       <Venue />
-      <AboutWordmark />
-      <SupportingOMA />
+      <Impact />
+      <AboutOMA />
+      <Tickets />
+      <Footer />
     </main>
   );
 }

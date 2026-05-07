@@ -3,7 +3,7 @@
 import { useRef, type ReactNode, type CSSProperties } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 
-type BloomShape = "lavender" | "chartreuse" | "teal" | "maroon" | "innerMaroon";
+type BloomShape = "lavender" | "chartreuse" | "teal" | "maroon" | "innerMaroon" | "rust";
 
 const SHAPE_FILL: Record<BloomShape, string> = {
   lavender: "var(--color-lavender)",
@@ -11,6 +11,7 @@ const SHAPE_FILL: Record<BloomShape, string> = {
   teal: "var(--color-teal)",
   maroon: "var(--color-bg-maroon)",
   innerMaroon: "var(--color-inner-maroon)",
+  rust: "var(--color-rust)",
 };
 
 /**

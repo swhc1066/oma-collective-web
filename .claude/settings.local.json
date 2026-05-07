@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" add components/hero/PostcardSVG.tsx)",
+      "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -m \"feat: PostcardSVG with on-load shape animation\")",
+      "Bash(npm run *)",
+      "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" add components/hero/PostcardHero.tsx app/page.tsx)",
+      "Bash(git -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -m \"feat: PostcardHero with text overlays and load animation\")",
+      "Bash(git -C /Users/seancraig/Desktop/Projects/oma-collective-26 -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" add components/sections/BloomSection.tsx)",
+      "Bash(git -C /Users/seancraig/Desktop/Projects/oma-collective-26 -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -m \"feat: BloomSection primitive for scroll-driven sections\")",
+      "Bash(git -C /Users/seancraig/Desktop/Projects/oma-collective-26 -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" add components/sections/SaveTheDate.tsx components/sections/Schedule.tsx components/sections/Venue.tsx components/sections/AboutWordmark.tsx components/sections/SupportingOMA.tsx)",
+      "Bash(git -C /Users/seancraig/Desktop/Projects/oma-collective-26 -c user.email=seanwhcraig@gmail.com -c user.name=\"Sean Craig\" commit -m \"feat: five bloom sections \\(Save the Date, Schedule, Venue, About, Supporting\\)\")"
+    ]
+  }
+}

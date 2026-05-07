@@ -24,15 +24,46 @@ export const event = {
     addressLine2: "Omaha, NE",
     mapsUrl: "https://maps.google.com/?q=Kaneko+1111+Jones+St+Omaha+NE",
     website: "https://thekaneko.org",
+    parking:
+      "Public lots and on-street parking on 11th and Jones. Valet available the night of the event.",
   },
   ticketsUrl:
     process.env.NEXT_PUBLIC_TICKETS_URL ?? "#tickets-not-configured",
 } as const;
 
-export const about = {
-  // PLACEHOLDER — replace with real event description from OMA board.
-  paragraph:
-    "Collective '26 is an evening of food, art, and community at Kaneko, gathering Old Market supporters, neighbors, and friends to celebrate the creative life of one of Omaha's most iconic neighborhoods.",
+export const intro = {
+  eyebrow: "Omaha's New Signature Summer Event",
+  paragraphs: [
+    "The Old Market Association invites you to celebrate our new era of energy, action, and impact.",
+    "Collective '26: The Arts is a first-of-its-kind event dedicated to our community's bold vision and boundless optimism. Join us at Kaneko for great entertainment, delicious food and drink, and the Old Market community helping make our downtown vibrant and unique.",
+  ],
+} as const;
+
+export const evening = {
+  blurb:
+    "An evening of curated dining, live performance, and community remarks — held in Kaneko's open creative space.",
+} as const;
+
+export const impact = {
+  eyebrow: "What your ticket supports",
+  headline: "Keeping the Old Market vibrant.",
+  items: [
+    {
+      title: "Public Art & Programming",
+      description:
+        "Murals, installations, and free events that activate the Old Market year-round.",
+    },
+    {
+      title: "Small Business Advocacy",
+      description:
+        "Supporting the independent shops, restaurants, and creators who define the district.",
+    },
+    {
+      title: "Neighborhood Stewardship",
+      description:
+        "Keeping the historic Old Market clean, walkable, and welcoming for residents and visitors.",
+    },
+  ],
 } as const;
 
 export const mission = {
@@ -41,6 +72,16 @@ export const mission = {
   paragraphs: [
     "The Old Market Association is a nonprofit dedicated to preserving, promoting, and strengthening Omaha's Old Market — the historic district that has anchored the city's cultural identity for generations.",
     "Funds raised at Collective '26 directly support the OMA's work to keep the district vibrant: public art, neighborhood programming, small business advocacy, and the people who make the Old Market what it is.",
+  ],
+} as const;
+
+export const tickets = {
+  price: "$135",
+  perSeat: "per seat",
+  includes: [
+    "Cocktail hour",
+    "Three-course seated dinner",
+    "Live program & remarks",
   ],
 } as const;
 
