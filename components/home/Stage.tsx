@@ -145,34 +145,49 @@ export function Stage() {
                   aria-label={`Go to ${next.label.join(" ")}`}
                   className={`fixed bottom-0 right-0 z-20 overflow-hidden font-display tracking-widest hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70 ${next.fg}`}
                   style={{
-                    backgroundColor: next.bg,
-                    width: "min(23svh, 30vw)",
-                    height: "min(23svh, 30vw)",
-                    borderTopLeftRadius: "100%",
-                    transformOrigin: "100% 100%",
+                    width: "min(28svh, 36vw)",
+                    height: "min(28svh, 36vw)",
+                    backgroundColor: "transparent",
                   }}
-                  initial={reduce ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    layout: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-                    opacity: { delay: 1.5, duration: 0.5, ease: [0.2, 0.8, 0.2, 1] },
-                    scale: { delay: 1.5, duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-                  }}
+                  transition={{ layout: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }}
                 >
+                  {/* The visible disc — scales from the bottom-right corner
+                      on entry. The outer button stays transparent so its
+                      layoutId morph (on click) doesn't fight the scale. */}
+                  <motion.span
+                    aria-hidden="true"
+                    className="absolute inset-0 block"
+                    style={{
+                      backgroundColor: next.bg,
+                      borderTopLeftRadius: "100%",
+                      transformOrigin: "100% 100%",
+                    }}
+                    initial={reduce ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{
+                      delay: 1.5,
+                      duration: 0.8,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  />
                   {/* Centered at the visual centroid of a bottom-right
                       quarter-disc (~42% inset from each adjacent edge). */}
-                  <span
-                    className="pointer-events-none absolute flex flex-col items-center text-center text-sm sm:text-base md:text-lg leading-[1.05]"
+                  <motion.span
+                    aria-hidden="false"
+                    className="pointer-events-none absolute z-10 flex flex-col items-center text-center text-sm sm:text-base md:text-lg leading-[1.05]"
                     style={{
                       bottom: "32%",
                       right: "32%",
                       transform: "translate(50%, 50%)",
                     }}
+                    initial={reduce ? { opacity: 1 } : { opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.9, duration: 0.4 }}
                   >
                     {next.label.map((line) => (
                       <span key={line} className="block">{line}</span>
                     ))}
-                  </span>
+                  </motion.span>
                 </motion.button>
               );
             })()}
