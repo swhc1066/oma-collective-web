@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion, type Variants } from "motion/react";
 import { Wordmark } from "./Wordmark";
 import { CurveOverlay } from "./CurveOverlay";
-import { BARS, getBar, nextSection, type SectionId } from "./bars";
+import { BARS, getBar, nextSection, prevSection, type SectionId } from "./bars";
 import { SectionBody } from "./sections";
 
 const barEnter: Variants = {
@@ -20,11 +20,13 @@ export function Stage() {
   const [active, setActive] = useState<SectionId | null>(null);
   const reduce = useReducedMotion();
 
-  // Esc closes the active section.
+  // Keyboard nav while a section is open: Esc closes, ←/→ moves between sections.
   useEffect(() => {
     if (!active) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setActive(null);
+      else if (e.key === "ArrowRight") setActive(nextSection(active));
+      else if (e.key === "ArrowLeft") setActive(prevSection(active));
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);

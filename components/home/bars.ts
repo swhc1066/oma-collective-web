@@ -65,3 +65,8 @@ export function nextSection(id: SectionId): SectionId {
   const i = ORDER.indexOf(id);
   return ORDER[(i + 1) % ORDER.length];
 }
+
+export function prevSection(id: SectionId): SectionId {
+  const i = ORDER.indexOf(id);
+  return ORDER[(i - 1 + ORDER.length) % ORDER.length];
+}
