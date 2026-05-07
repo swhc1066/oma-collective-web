@@ -145,35 +145,25 @@ export function Stage() {
                   aria-label={`Go to ${next.label.join(" ")}`}
                   className={`fixed bottom-0 right-0 z-20 overflow-hidden font-display tracking-widest hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70 ${next.fg}`}
                   style={{
+                    backgroundColor: next.bg,
                     width: "min(28svh, 36vw)",
                     height: "min(28svh, 36vw)",
-                    backgroundColor: "transparent",
+                    borderTopLeftRadius: "100%",
                   }}
-                  transition={{ layout: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }}
+                  initial={
+                    reduce
+                      ? false
+                      : { clipPath: "circle(0% at 100% 100%)" }
+                  }
+                  animate={{ clipPath: "circle(150% at 100% 100%)" }}
+                  transition={{
+                    layout: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+                    clipPath: { delay: 1.5, duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+                  }}
                 >
-                  {/* The visible disc — scales from the bottom-right corner
-                      on entry. The outer button stays transparent so its
-                      layoutId morph (on click) doesn't fight the scale. */}
-                  <motion.span
-                    aria-hidden="true"
-                    className="absolute inset-0 block"
-                    style={{
-                      backgroundColor: next.bg,
-                      borderTopLeftRadius: "100%",
-                      transformOrigin: "100% 100%",
-                    }}
-                    initial={reduce ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{
-                      delay: 1.5,
-                      duration: 0.8,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                  />
                   {/* Centered at the visual centroid of a bottom-right
                       quarter-disc (~42% inset from each adjacent edge). */}
                   <motion.span
-                    aria-hidden="false"
                     className="pointer-events-none absolute z-10 flex flex-col items-center text-center text-sm sm:text-base md:text-lg leading-[1.05]"
                     style={{
                       bottom: "32%",
@@ -182,7 +172,7 @@ export function Stage() {
                     }}
                     initial={reduce ? { opacity: 1 } : { opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 1.9, duration: 0.4 }}
+                    transition={{ delay: 2.1, duration: 0.4 }}
                   >
                     {next.label.map((line) => (
                       <span key={line} className="block">{line}</span>
