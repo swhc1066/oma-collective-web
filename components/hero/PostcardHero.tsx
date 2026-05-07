@@ -64,7 +64,7 @@ export function PostcardHero() {
         </motion.div>
 
         <div
-          className="absolute flex items-baseline gap-[0.4em] whitespace-nowrap"
+          className="absolute flex items-baseline gap-[0.9em] whitespace-nowrap"
           style={{
             left: HERO_TEXT_POS.wordmark.left,
             bottom: HERO_TEXT_POS.wordmark.bottom,
@@ -90,7 +90,7 @@ export function PostcardHero() {
               lineHeight: 0.95,
             }}
           >
-            <span className="absolute bottom-full left-0 leading-none">THE</span>
+            <span className="absolute bottom-full right-0 leading-none">THE</span>
             ARTS
           </motion.span>
         </div>
