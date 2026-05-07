@@ -18,14 +18,10 @@ export function PostcardHero() {
   const initial = reduce ? "visible" : "hidden";
 
   return (
-    <section className="relative flex h-[100svh] w-screen items-center justify-center overflow-hidden bg-[var(--color-bg-maroon)]">
+    <section className="relative h-[100svh] w-screen overflow-hidden bg-[var(--color-bg-maroon)]">
       <div
-        className="relative overflow-hidden"
-        style={{
-          width: "min(96vw, calc(94svh * 1.5))",
-          aspectRatio: "432 / 288",
-          containerType: "size",
-        }}
+        className="relative h-full w-full overflow-hidden"
+        style={{ containerType: "size" }}
       >
         <PostcardSVG />
 
