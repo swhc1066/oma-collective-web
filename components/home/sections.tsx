@@ -144,7 +144,7 @@ function RunOfShowBody() {
       <Eyebrow className="text-[var(--color-yellow)]">The Evening</Eyebrow>
       <H2 id="section-heading">Your experience includes</H2>
 
-      <div className="mx-auto mt-12 grid max-w-prose gap-10 text-center text-base sm:text-lg">
+      <div className="mx-auto mt-12 grid max-w-prose gap-10 text-base sm:text-lg">
         <div>
           <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
             6:30 PM &middot; Cocktail Arrival
@@ -224,7 +224,7 @@ function VenueBody() {
         </div>
       </div>
 
-      <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm">
+      <div className="mt-12 flex flex-wrap justify-start gap-x-8 gap-y-3 text-sm">
         <a className="underline underline-offset-4 hover:text-white" href={event.venue.mapsUrl} target="_blank" rel="noopener noreferrer">
           Get directions →
         </a>
@@ -266,7 +266,7 @@ function AboutOMABody() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 text-center">
+      <div className="mx-auto mt-12">
         <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
           Together, in 2025&ndash;2026 we:
         </p>
@@ -304,7 +304,7 @@ function AboutOMABody() {
         <a className="underline underline-offset-4 hover:text-[var(--color-rust)]" href={`mailto:${oma.email}`}>
           {oma.email}
         </a>
-        <div className="flex flex-wrap justify-center gap-5">
+        <div className="flex flex-wrap justify-start gap-5">
           <a className="underline underline-offset-4 hover:text-[var(--color-rust)]" href={oma.socials.instagram} target="_blank" rel="noopener noreferrer">
             Instagram
           </a>

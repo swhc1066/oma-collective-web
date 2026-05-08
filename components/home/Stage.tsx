@@ -136,7 +136,7 @@ export function Stage() {
                 initial={reduce ? { opacity: 1 } : { opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.85, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-                className={`w-full max-w-3xl text-center ${getBar(active).fg}`}
+                className={`w-full max-w-3xl text-left ${getBar(active).fg}`}
               >
                 <SectionBody id={active} />
               </motion.div>
