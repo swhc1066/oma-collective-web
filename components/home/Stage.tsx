@@ -81,11 +81,22 @@ export function Stage() {
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <span className="flex flex-col text-left leading-[1.05] text-xs sm:text-sm md:text-base lg:text-lg">
-                    {bar.label.map((line) => (
-                      <span key={line} className="block">
-                        {line}
+                    {bar.mobileLabel && (
+                      <span className="flex flex-col sm:hidden">
+                        {bar.mobileLabel.map((line) => (
+                          <span key={line} className="block">
+                            {line}
+                          </span>
+                        ))}
                       </span>
-                    ))}
+                    )}
+                    <span className={`flex flex-col ${bar.mobileLabel ? "hidden sm:flex" : ""}`}>
+                      {bar.label.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </span>
                   </span>
                 </motion.button>
               );
@@ -145,11 +156,9 @@ export function Stage() {
                   layoutId={`bar-${nextId}`}
                   onClick={() => setActive(nextId)}
                   aria-label={`Go to ${next.label.join(" ")}`}
-                  className={`fixed bottom-0 right-0 z-20 overflow-hidden font-display tracking-widest hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70 ${next.fg}`}
+                  className={`fixed bottom-0 right-0 z-20 overflow-hidden font-display tracking-widest w-[min(17.9svh,23vw)] h-[min(17.9svh,23vw)] sm:w-[min(28svh,36vw,200px)] sm:h-[min(28svh,36vw,200px)] hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70 ${next.fg}`}
                   style={{
                     backgroundColor: next.bg,
-                    width: "min(28svh, 36vw)",
-                    height: "min(28svh, 36vw)",
                     borderTopLeftRadius: "100%",
                   }}
                   initial={
@@ -166,19 +175,28 @@ export function Stage() {
                   {/* Centered at the visual centroid of a bottom-right
                       quarter-disc (~42% inset from each adjacent edge). */}
                   <motion.span
-                    className="pointer-events-none absolute z-10 flex flex-col items-center text-center text-sm sm:text-base md:text-lg leading-[1.05]"
+                    className="pointer-events-none absolute z-10 flex flex-col items-start text-left text-sm sm:text-base md:text-lg leading-[1.05]"
                     style={{
-                      bottom: "32%",
-                      right: "32%",
+                      bottom: "42%",
+                      right: "42%",
                       transform: "translate(50%, 50%)",
                     }}
                     initial={reduce ? { opacity: 1 } : { opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2.1, duration: 0.4 }}
                   >
-                    {next.label.map((line) => (
-                      <span key={line} className="block">{line}</span>
-                    ))}
+                    {next.mobileLabel && (
+                      <span className="flex flex-col sm:hidden">
+                        {next.mobileLabel.map((line) => (
+                          <span key={line} className="block">{line}</span>
+                        ))}
+                      </span>
+                    )}
+                    <span className={`flex flex-col ${next.mobileLabel ? "hidden sm:flex" : ""}`}>
+                      {next.label.map((line) => (
+                        <span key={line} className="block">{line}</span>
+                      ))}
+                    </span>
                   </motion.span>
                 </motion.button>
               );

@@ -98,7 +98,7 @@ function EventBody() {
     <>
       <Eyebrow className="text-[var(--color-rust)]">{intro.eyebrow}</Eyebrow>
       <H2 id="section-heading">OMAHA’S NEW SIGNATURE SUMMER EVENT</H2>
-      <div className="mx-auto mt-8 max-w-prose space-y-5 text-base sm:text-lg leading-relaxed">
+      <div className="mx-auto mt-8 space-y-5 text-balance text-base sm:text-lg leading-relaxed">
         {intro.paragraphs.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
@@ -117,10 +117,10 @@ function EventBody() {
           <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
             Attire
           </p>
-          <p className="mt-3">
+          <p className="mt-3 text-balance text-lg">
             This is not your traditional black-tie affair&hellip; unless you want it to be.
           </p>
-          <p className="mt-1">
+          <p className="mt-1 text-balance text-lg">
             Summer Creative &mdash; elevated, artful, expressive. Bold color. Effortless style. Creative edge.
           </p>
         </div>
@@ -243,20 +243,20 @@ function AboutOMABody() {
       <Eyebrow className="text-[var(--color-rust)]">About the OMA</Eyebrow>
       <H2 id="section-heading">Our Impact</H2>
 
-      <div className="mx-auto mt-8 max-w-prose space-y-5 text-base sm:text-lg leading-relaxed">
+      <div className="mx-auto mt-8 space-y-5 text-balance text-base sm:text-lg leading-relaxed">
         <p>
           The OMA is a volunteer-based neighborhood association working to unite the voices of the district and strengthen our community for the future.
         </p>
-        <p className="text-balance text-sm">
+        <p>
           We bring together businesses, residents, and stakeholders to create shared experiences, amplify visibility, and advocate for a vibrant, welcoming Old Market for all.
         </p>
       </div>
 
-      <div className="mx-auto mt-12 max-w-prose">
+      <div className="mx-auto mt-12">
         <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
           What Your Support Makes Possible
         </p>
-        <div className="mt-4 space-y-5 text-base sm:text-lg leading-relaxed">
+        <div className="mt-4 space-y-5 text-balance text-base sm:text-lg leading-relaxed">
           <p>
             Through events, storytelling, marketing, beautification, and placemaking, we help create an Old Market that feels active, connected, and worth exploring.
           </p>
@@ -266,11 +266,11 @@ function AboutOMABody() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-prose text-left">
-        <p className="text-center font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+      <div className="mx-auto mt-12 text-center">
+        <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
           Together, in 2025&ndash;2026 we:
         </p>
-        <ul className="mt-4 list-disc space-y-3 pl-6 text-base sm:text-lg leading-relaxed">
+        <ul className="mt-4 space-y-3 text-balance text-base sm:text-lg leading-relaxed">
           <li>
             In 2025, we generated more than 376,000 Instagram views and 1.7 million Facebook views showcasing the Old Market and its businesses.
           </li>

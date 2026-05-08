@@ -9,6 +9,8 @@ export interface BarConfig {
   id: SectionId;
   /** Multi-line label exactly as it appears on the postcard SVG. */
   label: string[];
+  /** Optional shortened label shown on mobile only. */
+  mobileLabel?: string[];
   bg: string;          // CSS background color
   fg: string;          // tailwind text-color class for label + section copy
   accent: string;      // tailwind text-color class for the eyebrow accent
@@ -18,6 +20,7 @@ export const BARS: BarConfig[] = [
   {
     id: "tickets",
     label: ["RESERVE A SPOT", "AT OUR", "TABLE"],
+    mobileLabel: ["RESERVE A SPOT"],
     bg: "var(--color-rust)",
     fg: "text-[var(--color-bg-maroon)]",
     accent: "text-white",
