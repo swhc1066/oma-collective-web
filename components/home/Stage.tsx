@@ -50,7 +50,7 @@ export function Stage() {
         aria-hidden={active ? "true" : undefined}
         animate={{ opacity: active ? 0 : 1 }}
         transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-        className="grid h-full grid-rows-[1fr_auto] lg:grid-cols-[70%_30%] lg:grid-rows-1"
+        className="grid h-full grid-rows-[30%_70%] lg:grid-cols-[70%_30%] lg:grid-rows-1"
         style={{ pointerEvents: active ? "none" : undefined }}
       >
         <Wordmark />
@@ -58,7 +58,7 @@ export function Stage() {
         <div className="relative">
           <nav
             aria-label="Sections"
-            className="relative grid h-full grid-cols-5 lg:grid-cols-1 lg:grid-rows-5"
+            className="relative grid h-full grid-cols-1 grid-rows-5"
           >
             {BARS.map((bar, i) => {
               // While any section is open, suppress the home-grid bars so

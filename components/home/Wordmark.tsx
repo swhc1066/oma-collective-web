@@ -20,6 +20,16 @@ export function Wordmark() {
       className="relative flex h-full w-full min-w-0 flex-col justify-end overflow-hidden px-5 pb-8 sm:px-10 sm:pb-12 lg:pb-16"
       style={{ containerType: "inline-size" }}
     >
+      <motion.p
+        custom={0}
+        variants={fadeUp}
+        initial={initial}
+        animate="visible"
+        className="mb-4 max-w-[44ch] font-display uppercase tracking-[0.3em] text-white/50 text-xs sm:text-sm"
+        style={{ lineHeight: 1.7 }}
+      >
+        An evening celebrating the creativity, culture, and collective investment shaping the future of Omaha&rsquo;s Old Market.
+      </motion.p>
       <div className="flex items-baseline gap-[0.6em] whitespace-nowrap">
         <motion.span
           custom={0}
