@@ -25,7 +25,7 @@ export function Wordmark() {
         variants={fadeUp}
         initial={initial}
         animate="visible"
-        className="mb-4 max-w-[44ch] font-display uppercase tracking-[0.3em] text-white/50 text-xs sm:text-sm"
+        className="mb-4 max-w-[44ch] font-display uppercase tracking-[0.3em] text-white/50 text-xs sm:text-sm lg:max-w-none"
         style={{ lineHeight: 1.7 }}
       >
         An evening celebrating the creativity, culture, and collective investment shaping the future of Omaha&rsquo;s Old Market.
