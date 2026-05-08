@@ -45,7 +45,7 @@ export const BARS: BarConfig[] = [
   },
   {
     id: "oma",
-    label: ["ABOUT", "THE OMA"],
+    label: ["OUR", "IMPACT"],
     bg: "var(--color-inner-maroon)",
     fg: "text-white",
     accent: "text-[var(--color-rust)]",

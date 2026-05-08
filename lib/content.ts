@@ -35,8 +35,10 @@ export const event = {
 export const intro = {
   eyebrow: "Omaha's New Signature Summer Event",
   paragraphs: [
-    "The Old Market Association invites you to celebrate our new era of energy, action, and impact.",
-    "Collective '26: The Arts is a first-of-its-kind event dedicated to our community's bold vision and boundless optimism. Join us at Kaneko for great entertainment, delicious food and drink, and the Old Market community helping make our downtown vibrant and unique.",
+    "The OMA proudly presents COLLECTIVE ’26: THE ARTS — a reimagined annual fundraiser bringing together the people who shape, support, and believe in the Old Market.",
+    "Held within the striking KANEKO galleries, this year’s event celebrates the artistic spirit and cultural energy that continue to shape the Old Market. The evening honors the creative legacy of Ree and Jun Kaneko — whose vision and artistry helped define the district we know today.",
+    "More than a traditional gala, COLLECTIVE is designed as an immersive summer evening of art, atmosphere, conversation, and connection.",
+    "All proceeds support the ongoing work of the OMA to elevate, connect, and strengthen the district through community-building, storytelling, beautification, and placemaking efforts.",
   ],
 } as const;
 
@@ -80,9 +82,9 @@ export const tickets = {
   price: "$135",
   perSeat: "per guest",
   includes: [
-    "Cocktail hour",
-    "Three-course seated dinner",
-    "Live program & remarks",
+    "Cocktail Hour",
+    "Three-Course Seated Dinner",
+    "Live Program & Remarks",
   ],
 } as const;
 

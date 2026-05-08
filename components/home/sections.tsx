@@ -1,6 +1,6 @@
 "use client";
 
-import { event, evening, intro, impact, mission, tickets, oma } from "@/lib/content";
+import { event, intro, impact, tickets, oma } from "@/lib/content";
 import type { SectionId } from "./bars";
 
 export function SectionBody({ id }: { id: SectionId }) {
@@ -97,21 +97,41 @@ function EventBody() {
   return (
     <>
       <Eyebrow className="text-[var(--color-rust)]">{intro.eyebrow}</Eyebrow>
-      <H2 id="section-heading">A new era of energy, action &amp; impact.</H2>
+      <H2 id="section-heading">OMAHA’S NEW SIGNATURE SUMMER EVENT</H2>
       <div className="mx-auto mt-8 max-w-prose space-y-5 text-base sm:text-lg leading-relaxed">
         {intro.paragraphs.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
       </div>
-      <div className="mt-10 grid gap-2 text-base sm:text-lg">
-        <p>
-          <span className="font-display tracking-widest mr-3">When</span>
-          {event.date.full}
-        </p>
-        <p>
-          <span className="font-display tracking-widest mr-3">Where</span>
-          {event.venue.name} &middot; {event.venue.addressLine1}, {event.venue.addressLine2}
-        </p>
+      <div className="mt-12 grid gap-10 text-base sm:text-lg">
+        <div>
+          <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+            Event Details
+          </p>
+          <p className="mt-3">Saturday, June 6, 2026</p>
+          <p>6:30 PM Cocktail Hour &middot; 7:00 PM Dinner &amp; Program</p>
+          <p>1111 Jones Street &middot; Omaha, Nebraska</p>
+        </div>
+
+        <div>
+          <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+            Attire
+          </p>
+          <p className="mt-3">
+            This is not your traditional black-tie affair&hellip; unless you want it to be.
+          </p>
+          <p className="mt-1">
+            Summer Creative &mdash; elevated, artful, expressive. Bold color. Effortless style. Creative edge.
+          </p>
+        </div>
+
+        <div>
+          <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+            Tickets &amp; Tables
+          </p>
+          <p className="mt-3">Only 150 guests will be part of this year&rsquo;s event.</p>
+          <p>Reserve your spot at the table today.</p>
+        </div>
       </div>
     </>
   );
@@ -122,23 +142,35 @@ function RunOfShowBody() {
   return (
     <>
       <Eyebrow className="text-[var(--color-yellow)]">The Evening</Eyebrow>
-      <H2 id="section-heading">Run of show</H2>
-      <p className="mx-auto mt-6 max-w-prose text-base sm:text-lg leading-relaxed">
-        {evening.blurb}
-      </p>
-      <div className="mt-10 grid gap-3 text-base sm:text-lg">
-        <p>
-          <span className="font-display tracking-widest mr-3">{event.time.doors}</span>
-          Doors &amp; cocktails
-        </p>
-        <p>
-          <span className="font-display tracking-widest mr-3">{event.time.dinner}</span>
-          Seated dinner
-        </p>
-        <p>
-          <span className="font-display tracking-widest mr-3">{event.time.program}</span>
-          Program &amp; remarks
-        </p>
+      <H2 id="section-heading">Your experience includes</H2>
+
+      <div className="mx-auto mt-12 grid max-w-prose gap-10 text-center text-base sm:text-lg">
+        <div>
+          <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+            6:30 PM &middot; Cocktail Arrival
+          </p>
+        </div>
+
+        <div>
+          <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+            7:00 PM &middot; Three-Course Shared Dinner
+          </p>
+          <ul className="mt-3 space-y-2 leading-relaxed">
+            <li>A thoughtfully prepared dinner by Chef Tyler Johnson of FIG.</li>
+            <li>A vibrant dessert presentation by Chef/Owner Erik Landa of CENTI.</li>
+          </ul>
+        </div>
+
+        <div>
+          <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+            8:00 PM &middot; Program
+          </p>
+          <ul className="mt-3 space-y-2 leading-relaxed">
+            <li>A special conversation celebrating the artistic legacy and impact of Ree &amp; Jun Kaneko.</li>
+            <li>A curated auction featuring exclusive Old Market and local experiences.</li>
+            <li>Live performance by Broadway Bar, led by Curtis Reynolds.</li>
+          </ul>
+        </div>
       </div>
     </>
   );
@@ -150,16 +182,49 @@ function VenueBody() {
     <>
       <Eyebrow className="text-white">The Venue</Eyebrow>
       <H2 id="section-heading">
-        <span className="text-white">{event.venue.name}</span>
+        <span className="text-white">KANEKO</span>
       </H2>
-      <address className="mt-6 not-italic text-lg">
-        {event.venue.addressLine1}<br />
-        {event.venue.addressLine2}
+      <address className="mt-6 not-italic text-base sm:text-lg">
+        1111 Jones Street &middot; Omaha, Nebraska
       </address>
-      <p className="mx-auto mt-6 max-w-prose text-base leading-relaxed">
-        {event.venue.parking}
+
+      <p className="mx-auto mt-8 max-w-prose text-base sm:text-lg leading-snug">
+        A space rooted in creativity, experimentation, and community, KANEKO has long stood as one of the cultural anchors of the Old Market. Founded through the vision of Ree and Jun Kaneko, the space reflects the same spirit of artistic energy and collaboration that inspired this year&rsquo;s COLLECTIVE theme: THE ARTS.
       </p>
-      <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm">
+
+      <div className="mx-auto mt-12 grid max-w-prose gap-8 text-base sm:text-lg">
+        <div>
+          <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+            Arrival &amp; Parking
+          </p>
+          <p className="mt-3 leading-normal">
+            Guests are encouraged to arrive between 6:15&ndash;6:30 PM for cocktail hour.
+          </p>
+        </div>
+
+        <div>
+          <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+            Nearby Parking Options
+          </p>
+          <ul className="mt-3 space-y-2 leading-normal">
+            <li>Street parking throughout the Old Market</li>
+            <li>Nearby public garages within walking distance</li>
+            <li>Ride share encouraged for ease of arrival</li>
+          </ul>
+        </div>
+
+        <div>
+          <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+            Recommended Garages
+          </p>
+          <ul className="mt-3 space-y-2 leading-normal">
+            <li>Landmark Parking Garage &mdash; 11th &amp; Jones</li>
+            <li>City of Omaha Garages throughout the Old Market district</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm">
         <a className="underline underline-offset-4 hover:text-white" href={event.venue.mapsUrl} target="_blank" rel="noopener noreferrer">
           Get directions →
         </a>
@@ -176,11 +241,64 @@ function AboutOMABody() {
   return (
     <>
       <Eyebrow className="text-[var(--color-rust)]">About the OMA</Eyebrow>
-      <H2 id="section-heading">{mission.heading}</H2>
+      <H2 id="section-heading">Our Impact</H2>
+
       <div className="mx-auto mt-8 max-w-prose space-y-5 text-base sm:text-lg leading-relaxed">
-        {mission.paragraphs.map((p, i) => (
-          <p key={i}>{p}</p>
-        ))}
+        <p>
+          The OMA is a volunteer-based neighborhood association working to unite the voices of the district and strengthen our community for the future.
+        </p>
+        <p className="text-balance text-sm">
+          We bring together businesses, residents, and stakeholders to create shared experiences, amplify visibility, and advocate for a vibrant, welcoming Old Market for all.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-12 max-w-prose">
+        <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+          What Your Support Makes Possible
+        </p>
+        <div className="mt-4 space-y-5 text-base sm:text-lg leading-relaxed">
+          <p>
+            Through events, storytelling, marketing, beautification, and placemaking, we help create an Old Market that feels active, connected, and worth exploring.
+          </p>
+          <p>
+            Your support helps power district-wide promotion, community experiences, and improvements made possible through collective investment in the future of the Old Market.
+          </p>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-12 max-w-prose text-left">
+        <p className="text-center font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
+          Together, in 2025&ndash;2026 we:
+        </p>
+        <ul className="mt-4 list-disc space-y-3 pl-6 text-base sm:text-lg leading-relaxed">
+          <li>
+            In 2025, we generated more than 376,000 Instagram views and 1.7 million Facebook views showcasing the Old Market and its businesses.
+          </li>
+          <li>
+            Launched new storytelling initiatives like 50 Faces, 50 Stories to celebrate the people and culture that define the district.
+          </li>
+          <li>
+            Introduced Beats, Bites + Autumn Nights &mdash; a fall festival celebrating music, food, creativity, and community.
+          </li>
+          <li>
+            Completed the 7 Circles Old Market Legacy Project at 11th &amp; Howard &mdash; bringing new native landscaping, trees, and connectivity to one of the district&rsquo;s most visible intersections.
+          </li>
+          <li>
+            Continued Neighborly Nights into its 3rd year &mdash; creating free quarterly gatherings that connect residents, merchants, and community partners.
+          </li>
+          <li>
+            Hosted quarterly Clean Sweep volunteer days to help care for and beautify the district.
+          </li>
+          <li>
+            Expanded Market Matters into one of downtown Omaha&rsquo;s most consistent and informative community gatherings.
+          </li>
+          <li>
+            Advanced planning and partnerships surrounding the future Cultural Arts Corridor and Nebraska Creative District designation.
+          </li>
+          <li>
+            Strengthened relationships between residents, businesses, city leadership, and community organizations working toward a stronger Old Market.
+          </li>
+        </ul>
       </div>
       <div className="mt-10 grid gap-3 text-sm">
         <a className="underline underline-offset-4 hover:text-[var(--color-rust)]" href={`mailto:${oma.email}`}>
