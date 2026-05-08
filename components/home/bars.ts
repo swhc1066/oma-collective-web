@@ -17,7 +17,7 @@ export interface BarConfig {
 export const BARS: BarConfig[] = [
   {
     id: "tickets",
-    label: ["BUY", "YOUR", "TICKETS"],
+    label: ["RESERVE A SPOT", "AT OUR", "TABLE"],
     bg: "var(--color-rust)",
     fg: "text-[var(--color-bg-maroon)]",
     accent: "text-white",

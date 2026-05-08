@@ -50,19 +50,19 @@ export const impact = {
   headline: "Keeping the Old Market vibrant.",
   items: [
     {
-      title: "Public Art & Programming",
+      title: "COMMUNITY & CONNECTION",
       description:
-        "Murals, installations, and free events that activate the Old Market year-round.",
+        "Supporting events and experiences that bring neighbors, businesses, creatives, and guests together throughout the year.",
     },
     {
-      title: "Small Business Advocacy",
+      title: "VISIBILITY & STORYTELLING",
       description:
-        "Supporting the independent shops, restaurants, and creators who define the district.",
+        "Amplifying the people, businesses, and culture of the Old Market through marketing, social media, and creative initiatives like 50 Faces, 50 Stories.",
     },
     {
-      title: "Neighborhood Stewardship",
+      title: "BEAUTIFICATION & PLACEMAKING",
       description:
-        "Keeping the historic Old Market clean, walkable, and welcoming for residents and visitors.",
+        "Helping shape a more vibrant, walkable, and welcoming district through projects like the 7 Circles Old Market Legacy Project, Clean Sweeps, and future Cultural Arts Corridor efforts.",
     },
   ],
 } as const;
@@ -78,7 +78,7 @@ export const mission = {
 
 export const tickets = {
   price: "$135",
-  perSeat: "per seat",
+  perSeat: "per guest",
   includes: [
     "Cocktail hour",
     "Three-course seated dinner",
