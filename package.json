@@ -4,7 +4,7 @@
   "private": true,
   "description": "One-page event site for Collective '26, the Old Market Association of Omaha fundraiser dinner at Kaneko.",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

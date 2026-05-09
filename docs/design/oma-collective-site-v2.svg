@@ -19,12 +19,12 @@
         fill: #e6e142;
       }
 
-      .st4, .st5, .st2, .st6, .st7, .st8 {
+      .st4, .st5, .st6, .st2, .st7, .st8 {
         font-family: DazzleUnicase-Medium, 'Dazzle Unicase';
         font-weight: 500;
       }
 
-      .st4, .st5, .st2, .st7 {
+      .st4, .st6, .st2, .st7 {
         font-size: 11px;
       }
 
@@ -33,15 +33,15 @@
       }
 
       .st5 {
-        fill: #b5d0ca;
+        font-size: 25.57px;
+      }
+
+      .st5, .st8 {
+        fill: #fff;
       }
 
       .st6 {
-        font-size: 19px;
-      }
-
-      .st6, .st8 {
-        fill: #fff;
+        fill: #b5d0ca;
       }
 
       .st10, .st7 {
@@ -52,25 +52,25 @@
         fill: #067099;
       }
 
-      .st8 {
-        font-size: 46px;
-      }
-
       .st12 {
         fill: #c5b1d6;
       }
+
+      .st8 {
+        font-size: 61.91px;
+      }
     </style>
   </defs>
-  <rect class="st10" y="0" width="866.18" height="529.93"/>
+  <rect class="st10" y="0" width="611.05" height="529.93"/>
   <g>
-    <polygon class="st0" points="446.28 509.21 375.38 509.21 360.02 509.21 360.02 460.26 446.28 460.26 446.28 509.21"/>
-    <text class="st6" transform="translate(412.61 486.36)"><tspan x="0" y="0">THE</tspan></text>
-    <text class="st6" transform="translate(402.69 509.16)"><tspan x="0" y="0">A</tspan></text>
-    <text class="st6" transform="translate(417.11 509.16)"><tspan x="0" y="0">R</tspan></text>
-    <text class="st6" transform="translate(428.57 509.16)"><tspan x="0" y="0">T</tspan></text>
-    <text class="st6" transform="translate(438.22 509.16)"><tspan x="0" y="0">s</tspan></text>
+    <polygon class="st0" points="592.61 504.2 497.21 504.2 476.54 504.2 476.54 438.32 592.61 438.32 592.61 504.2"/>
+    <text class="st5" transform="translate(547.3 473.45)"><tspan x="0" y="0">THE</tspan></text>
+    <text class="st5" transform="translate(533.96 504.13)"><tspan x="0" y="0">A</tspan></text>
+    <text class="st5" transform="translate(553.36 504.13)"><tspan x="0" y="0">R</tspan></text>
+    <text class="st5" transform="translate(568.78 504.13)"><tspan x="0" y="0">T</tspan></text>
+    <text class="st5" transform="translate(581.77 504.13)"><tspan x="0" y="0">s</tspan></text>
   </g>
-  <text class="st8" transform="translate(23.08 508.52)"><tspan x="0" y="0">COLLECTIVE ‘26</tspan></text>
+  <text class="st8" transform="translate(23.08 503.27)"><tspan x="0" y="0">COLLECTIVE ‘26</tspan></text>
   <rect class="st9" x="611.05" y="212.32" width="255.13" height="106.16"/>
   <rect class="st11" x="611.05" y="318.48" width="255.13" height="106.16"/>
   <circle class="st3" cx="828.07" cy="426.61" r="66.32"/>
@@ -78,7 +78,7 @@
   <text class="st7" transform="translate(622.62 131.89)"><tspan x="0" y="0">THE </tspan><tspan x="0" y="13.2">EVENT</tspan></text>
   <path class="st1" d="M866.18,71.64V0h-255.13v106.16h188.3c0,23.38,18.95,42.33,42.33,42.33s42.33-18.95,42.33-42.33c0-14.25-7.05-26.84-17.84-34.52Z"/>
   <text class="st7" transform="translate(622.74 23.25)"><tspan x="0" y="0">BUY</tspan><tspan x="0" y="13.2">YOUR</tspan><tspan x="0" y="26.4">TICKETS</tspan></text>
-  <text class="st5" transform="translate(623.49 341.77)"><tspan x="0" y="0">THE</tspan><tspan x="0" y="13.2">VENUE</tspan></text>
+  <text class="st6" transform="translate(623.49 341.77)"><tspan x="0" y="0">THE</tspan><tspan x="0" y="13.2">VENUE</tspan></text>
   <path class="st9" d="M611.05,164.88c26.2,0,47.44,21.24,47.44,47.44s-21.24,47.44-47.44,47.44"/>
   <text class="st4" transform="translate(622.75 236)"><tspan x="0" y="0">RUN</tspan><tspan x="0" y="13.2">OF</tspan><tspan x="0" y="26.4">SHOW</tspan></text>
   <circle class="st11" cx="866.18" cy="318.48" r="40.98"/>
