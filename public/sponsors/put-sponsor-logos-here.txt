@@ -1,0 +1,3 @@
+Sponsor logos are loaded from the sibling folder: public/logos/
+
+Filenames are listed in lib/content.ts under sponsors.items.

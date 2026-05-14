@@ -1,6 +1,7 @@
 "use client";
 
-import { event, intro, impact, tickets, oma } from "@/lib/content";
+import Image from "next/image";
+import { event, intro, impact, tickets, sponsors, oma } from "@/lib/content";
 import type { SectionId } from "./bars";
 
 export function SectionBody({ id }: { id: SectionId }) {
@@ -66,6 +67,39 @@ function TicketsBody() {
       >
         BUY TICKETS →
       </a>
+
+      <div
+        className="mt-12 border-t border-[var(--color-bg-maroon)]/30 pt-8"
+        aria-labelledby="sponsors-heading"
+      >
+        <Eyebrow className="text-white">{sponsors.eyebrow}</Eyebrow>
+        <H2 id="sponsors-heading">{sponsors.headline}</H2>
+
+        <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 sm:gap-10">
+          {sponsors.items.map((item, index) => (
+            <li
+              key={`sponsor-${index}`}
+              className="flex flex-col items-center justify-center text-center"
+            >
+              {"logoFile" in item ? (
+                <div className="relative flex min-h-24 w-full max-w-[220px] items-center justify-center px-2">
+                  <Image
+                    src={`/logos/${encodeURIComponent(item.logoFile)}`}
+                    alt={item.name}
+                    width={220}
+                    height={96}
+                    className="max-h-24 w-auto max-w-full object-contain"
+                  />
+                </div>
+              ) : (
+                <p className="font-display text-lg sm:text-xl leading-tight tracking-wide text-[var(--color-bg-maroon)]">
+                  {item.name}
+                </p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <div className="mt-12 border-t border-[var(--color-bg-maroon)]/30 pt-8">
         <Eyebrow className="text-white">{impact.eyebrow}</Eyebrow>

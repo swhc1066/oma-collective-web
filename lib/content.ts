@@ -88,6 +88,21 @@ export const tickets = {
   ],
 } as const;
 
+/** Logo image files live in `public/logos/`. Filename must match `logoFile` when set. */
+export const sponsors = {
+  eyebrow: "Our sponsors",
+  headline: "Thank you to our sponsors",
+  /** Names for logo `alt` text and name-only rows (no caption under logos). */
+  items: [
+    { name: "Better Homes and Gardens Real Estate", logoFile: "BHGRE_The Good Life Group_3 LINES_Horizontal_White_CMYK.png" },
+    { name: "Leuders", logoFile: "LEUDERS.png" },
+    { name: "Odida", logoFile: "ODIDA.png" },
+    { name: "Tina Cherica" },
+    { name: "Morrissey Engineering", logoFile: "morrissey engineering.png" },
+    { name: "Lori & Mark Hock" },
+  ],
+} as const;
+
 export const oma = {
   legalName: "Old Market Association of Omaha",
   email: "info@oldmarket.org",
