@@ -80,7 +80,7 @@ export function Stage() {
                   style={{ backgroundColor: bar.bg }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <span className="flex flex-col text-left leading-[1.05] text-xs sm:text-sm md:text-base lg:text-lg">
+                  <span className="flex translate-y-[8px] flex-col text-left leading-[1.05] text-xs sm:text-sm md:text-base lg:text-lg">
                     {bar.mobileLabel && (
                       <span className="flex flex-col sm:hidden">
                         {bar.mobileLabel.map((line) => (
@@ -146,16 +146,18 @@ export function Stage() {
                 Sequence per click:
                   1. layoutId morphs the circle to fill the new section (~0.8s)
                   2. New section copy fades in (delay 0.85s)
-                  3. New next-circle fades in (delay 1.5s) */}
+                  3. New next-circle fades in (delay ~1s) */}
             {(() => {
               const nextId = nextSection(active);
               const next = getBar(nextId);
+              const cornerLines = next.quarterCircleLabel ?? null;
+              const ariaTarget = cornerLines ?? next.label;
               return (
                 <motion.button
                   key={`next-${active}`}
                   layoutId={`bar-${nextId}`}
                   onClick={() => setActive(nextId)}
-                  aria-label={`Go to ${next.label.join(" ")}`}
+                  aria-label={`Go to ${ariaTarget.join(" ")}`}
                   className={`fixed bottom-0 right-0 z-20 overflow-hidden font-display tracking-widest w-[min(17.9svh,23vw)] h-[min(17.9svh,23vw)] sm:w-[min(28svh,36vw,200px)] sm:h-[min(28svh,36vw,200px)] hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70 ${next.fg}`}
                   style={{
                     backgroundColor: next.bg,
@@ -169,34 +171,56 @@ export function Stage() {
                   animate={{ clipPath: "circle(150% at 100% 100%)" }}
                   transition={{
                     layout: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-                    clipPath: { delay: 1.5, duration: 1.0, ease: [0.4, 0, 0.2, 1] },
+                    clipPath: { delay: 1.0, duration: 1.0, ease: [0.4, 0, 0.2, 1] },
                   }}
                 >
                   {/* Centered at the visual centroid of a bottom-right
                       quarter-disc (~42% inset from each adjacent edge). */}
                   <motion.span
-                    className="pointer-events-none absolute z-10 flex flex-col items-start text-left text-sm sm:text-base md:text-lg leading-[1.05]"
+                    className="pointer-events-none absolute z-10 flex flex-row items-center gap-1 sm:gap-1.5 text-left text-sm sm:text-base md:text-lg leading-[1.05]"
                     style={{
                       bottom: "42%",
                       right: "42%",
-                      transform: "translate(50%, 50%)",
+                      transform: "translate(50%, calc(50% + 8px))",
                     }}
                     initial={reduce ? { opacity: 1 } : { opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 2.1, duration: 0.4 }}
+                    transition={{ delay: 1.6, duration: 0.4 }}
                   >
-                    {next.mobileLabel && (
-                      <span className="flex flex-col sm:hidden">
-                        {next.mobileLabel.map((line) => (
+                    <span className="flex min-w-0 flex-col items-start">
+                      {cornerLines ? (
+                        cornerLines.map((line) => (
                           <span key={line} className="block">{line}</span>
-                        ))}
-                      </span>
-                    )}
-                    <span className={`flex flex-col ${next.mobileLabel ? "hidden sm:flex" : ""}`}>
-                      {next.label.map((line) => (
-                        <span key={line} className="block">{line}</span>
-                      ))}
+                        ))
+                      ) : (
+                        <>
+                          {next.mobileLabel && (
+                            <span className="flex flex-col sm:hidden">
+                              {next.mobileLabel.map((line) => (
+                                <span key={line} className="block">{line}</span>
+                              ))}
+                            </span>
+                          )}
+                          <span className={`flex flex-col ${next.mobileLabel ? "hidden sm:flex" : ""}`}>
+                            {next.label.map((line) => (
+                              <span key={line} className="block">{line}</span>
+                            ))}
+                          </span>
+                        </>
+                      )}
                     </span>
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      className="h-5 w-5 shrink-0 sm:h-6 sm:w-6 md:h-7 md:w-7"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M9 6l6 6-6 6" />
+                    </svg>
                   </motion.span>
                 </motion.button>
               );

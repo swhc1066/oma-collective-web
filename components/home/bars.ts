@@ -11,6 +11,8 @@ export interface BarConfig {
   label: string[];
   /** Optional shortened label shown on mobile only. */
   mobileLabel?: string[];
+  /** When set, used for the bottom-right next-section quarter circle only (home grid still uses label / mobileLabel). */
+  quarterCircleLabel?: string[];
   bg: string;          // CSS background color
   fg: string;          // tailwind text-color class for label + section copy
   accent: string;      // tailwind text-color class for the eyebrow accent
@@ -21,6 +23,7 @@ export const BARS: BarConfig[] = [
     id: "tickets",
     label: ["RESERVE A SPOT", "AT OUR", "TABLE"],
     mobileLabel: ["RESERVE A SPOT"],
+    quarterCircleLabel: ["Reserve a Spot"],
     bg: "var(--color-rust)",
     fg: "text-[var(--color-bg-maroon)]",
     accent: "text-white",
@@ -34,7 +37,7 @@ export const BARS: BarConfig[] = [
   },
   {
     id: "show",
-    label: ["RUN", "OF", "SHOW"],
+    label: ["RUN OF", "SHOW"],
     bg: "var(--color-chartreuse)",
     fg: "text-[var(--color-bg-maroon)]",
     accent: "text-[var(--color-yellow)]",
