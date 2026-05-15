@@ -178,7 +178,7 @@ function RunOfShowBody() {
       <Eyebrow className="text-[var(--color-yellow)]">The Evening</Eyebrow>
       <H2 id="section-heading">Your experience includes</H2>
 
-      <div className="mx-auto mt-12 grid max-w-prose gap-10 text-base sm:text-lg">
+      <div className="mt-12 grid max-w-prose gap-10 text-base sm:text-lg">
         <div>
           <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
             6:30 PM &middot; Cocktail Arrival
@@ -189,7 +189,7 @@ function RunOfShowBody() {
           <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
             7:00 PM &middot; Three-Course Shared Dinner
           </p>
-          <ul className="mt-3 space-y-2 leading-relaxed">
+          <ul className="mt-3 list-none space-y-2 p-0 leading-relaxed">
             <li>A thoughtfully prepared dinner by Chef Tyler Johnson of FIG.</li>
             <li>A vibrant dessert presentation by Chef/Owner Erik Landa of CENTI.</li>
           </ul>
@@ -199,7 +199,7 @@ function RunOfShowBody() {
           <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
             8:00 PM &middot; Program
           </p>
-          <ul className="mt-3 space-y-2 leading-relaxed">
+          <ul className="mt-3 list-none space-y-2 p-0 leading-relaxed">
             <li>A special conversation celebrating the artistic legacy and impact of Ree &amp; Jun Kaneko.</li>
             <li>A curated auction featuring exclusive Old Market and local experiences.</li>
             <li>Live performance by Broadway Bar, led by Curtis Reynolds.</li>
@@ -222,11 +222,11 @@ function VenueBody() {
         1111 Jones Street &middot; Omaha, Nebraska
       </address>
 
-      <p className="mx-auto mt-8 max-w-prose text-base sm:text-lg leading-snug">
+      <p className="mt-8 max-w-prose text-base sm:text-lg leading-snug">
         A space rooted in creativity, experimentation, and community, KANEKO has long stood as one of the cultural anchors of the Old Market. Founded through the vision of Ree and Jun Kaneko, the space reflects the same spirit of artistic energy and collaboration that inspired this year&rsquo;s COLLECTIVE theme: THE ARTS.
       </p>
 
-      <div className="mx-auto mt-12 grid max-w-prose gap-8 text-base sm:text-lg">
+      <div className="mt-12 grid max-w-prose gap-8 text-base sm:text-lg">
         <div>
           <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
             Arrival &amp; Parking
@@ -240,7 +240,7 @@ function VenueBody() {
           <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
             Nearby Parking Options
           </p>
-          <ul className="mt-3 space-y-2 leading-normal">
+          <ul className="mt-3 list-none space-y-2 p-0 leading-normal">
             <li>Street parking throughout the Old Market</li>
             <li>Nearby public garages within walking distance</li>
             <li>Ride share encouraged for ease of arrival</li>
@@ -251,7 +251,7 @@ function VenueBody() {
           <p className="font-display font-bold uppercase tracking-[0.25em] text-base sm:text-lg">
             Recommended Garages
           </p>
-          <ul className="mt-3 space-y-2 leading-normal">
+          <ul className="mt-3 list-none space-y-2 p-0 leading-normal">
             <li>Landmark Parking Garage &mdash; 11th &amp; Jones</li>
             <li>City of Omaha Garages throughout the Old Market district</li>
           </ul>

@@ -42,6 +42,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Tailwind preflight can leave links without a pointer; underline CTAs should read as clickable. */
+a[href] {
+  cursor: pointer;
+}
+
 .font-display, h1, h2, h3 {
   font-family: var(--font-display);
   font-weight: 500;

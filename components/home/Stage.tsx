@@ -124,7 +124,7 @@ export function Stage() {
               type="button"
               onClick={() => setActive(null)}
               aria-label="Close section"
-              className="fixed right-4 top-4 z-10 grid h-12 w-12 place-items-center rounded-full bg-black/15 text-white transition hover:bg-black/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white sm:right-6 sm:top-6"
+              className="fixed right-4 top-4 z-10 grid h-12 w-12 cursor-pointer place-items-center rounded-full bg-black/15 text-white transition hover:bg-black/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white sm:right-6 sm:top-6"
             >
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
@@ -158,7 +158,7 @@ export function Stage() {
                   layoutId={`bar-${nextId}`}
                   onClick={() => setActive(nextId)}
                   aria-label={`Go to ${ariaTarget.join(" ")}`}
-                  className={`fixed bottom-0 right-0 z-20 overflow-hidden font-display tracking-widest w-[min(17.9svh,23vw)] h-[min(17.9svh,23vw)] sm:w-[min(28svh,36vw,200px)] sm:h-[min(28svh,36vw,200px)] hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70 ${next.fg}`}
+                  className={`fixed bottom-0 right-0 z-20 cursor-pointer overflow-hidden font-display tracking-widest w-[min(17.9svh,23vw)] h-[min(17.9svh,23vw)] sm:w-[min(28svh,36vw,200px)] sm:h-[min(28svh,36vw,200px)] hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white/70 ${next.fg}`}
                   style={{
                     backgroundColor: next.bg,
                     borderTopLeftRadius: "100%",
