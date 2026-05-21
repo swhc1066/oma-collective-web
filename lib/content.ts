@@ -99,6 +99,7 @@ export const sponsors = {
         { name: "Omaha DID", logoFile: "ODIDA.png", logoScale: 0.8 },
         { name: "Bunge", logoFile: "bunge logo.png" },
         { name: "Tina Cherica", nameLight: true },
+        { name: "Sower Investment Partners", nameLight: true },
       ],
     },
     {
