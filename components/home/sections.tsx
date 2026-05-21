@@ -44,6 +44,13 @@ const sponsorRowClass =
 const sponsorLiClass =
   "flex min-h-24 min-w-0 max-w-[220px] shrink-0 flex-col items-start justify-center text-left sm:max-w-[240px]";
 
+/** "First &" on line one, remainder on line two (e.g. Tina & / John Cherica). */
+function coupleNameLines(name: string): { line1: string; line2: string } | null {
+  const parts = name.split(" & ");
+  if (parts.length !== 2 || !parts[0] || !parts[1]) return null;
+  return { line1: `${parts[0]} &`, line2: parts[1] };
+}
+
 /** Optional `logoScale` multiplies rendered logo size (1 = default). */
 function SponsorItem({
   item,
@@ -56,6 +63,7 @@ function SponsorItem({
   const nameClass = item.nameLight
     ? "text-white"
     : "text-[var(--color-bg-maroon)]";
+  const coupleLines = coupleNameLines(item.name);
 
   return (
     <li className={sponsorLiClass}>
@@ -75,8 +83,15 @@ function SponsorItem({
           </span>
         </div>
       ) : (
-        <p className={`font-display text-lg leading-none tracking-wide sm:text-xl ${nameClass}`}>
-          {item.name}
+        <p className={`font-display text-lg leading-tight tracking-wide sm:text-xl ${nameClass}`}>
+          {coupleLines ? (
+            <>
+              <span className="block">{coupleLines.line1}</span>
+              <span className="block">{coupleLines.line2}</span>
+            </>
+          ) : (
+            item.name
+          )}
         </p>
       )}
     </li>

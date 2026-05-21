@@ -98,13 +98,13 @@ export const sponsors = {
       items: [
         { name: "Omaha DID", logoFile: "ODIDA.png", logoScale: 0.8 },
         { name: "Bunge", logoFile: "bunge logo.png" },
-        { name: "Tina Cherica", nameLight: true },
-        { name: "Sower Investment Partners", nameLight: true },
+        { name: "Tina & John Cherica", nameLight: true },
       ],
     },
     {
       title: "Patron",
       items: [
+        { name: "Sower Investment Partners", logoFile: "sowerlogowhite.png", logoScale: 0.85 },
         { name: "Leuders", logoFile: "LEUDERS.png", logoScale: 1.1 },
         { name: "Better Homes and Gardens Real Estate", logoFile: "BHGRE_The Good Life Group_3 LINES_Horizontal_White_CMYK.png" },
         { name: "Morrissey Engineering", logoFile: "morrissey engineering.png" },
