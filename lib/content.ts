@@ -88,18 +88,32 @@ export const tickets = {
   ],
 } as const;
 
-/** Logo image files live in `public/logos/`. Filename must match `logoFile` when set. */
+/** Logo files in `public/logos/`. Optional `logoScale` scales the logo (1 = default). Optional `nameLight` uses white type for name-only rows. */
 export const sponsors = {
   eyebrow: "Our sponsors",
   headline: "Thank you to our sponsors",
-  /** Names for logo `alt` text and name-only rows (no caption under logos). */
-  items: [
-    { name: "Better Homes and Gardens Real Estate", logoFile: "BHGRE_The Good Life Group_3 LINES_Horizontal_White_CMYK.png" },
-    { name: "Leuders", logoFile: "LEUDERS.png" },
-    { name: "Odida", logoFile: "ODIDA.png" },
-    { name: "Tina Cherica" },
-    { name: "Morrissey Engineering", logoFile: "morrissey engineering.png" },
-    { name: "Lori & Mark Hock" },
+  tiers: [
+    {
+      title: "Ambassador",
+      items: [
+        { name: "Omaha DID", logoFile: "ODIDA.png", logoScale: 0.8 },
+        { name: "Bunge", logoFile: "bunge logo.png" },
+        { name: "Tina Cherica", nameLight: true },
+      ],
+    },
+    {
+      title: "Patron",
+      items: [
+        { name: "Leuders", logoFile: "LEUDERS.png", logoScale: 1.1 },
+        { name: "Better Homes and Gardens Real Estate", logoFile: "BHGRE_The Good Life Group_3 LINES_Horizontal_White_CMYK.png" },
+        { name: "Morrissey Engineering", logoFile: "morrissey engineering.png" },
+        { name: "Lori & Mark Houck", nameLight: true },
+      ],
+    },
+    {
+      title: "Neighbor",
+      items: [{ name: "Barbara Schlott", nameLight: true }],
+    },
   ],
 } as const;
 

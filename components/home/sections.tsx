@@ -38,6 +38,51 @@ function H2({ children, id }: { children: React.ReactNode; id?: string }) {
   );
 }
 
+const sponsorRowClass =
+  "list-none m-0 flex w-full min-w-0 max-w-full flex-row flex-wrap items-start justify-start gap-x-8 gap-y-8 p-0 text-left sm:gap-x-10 sm:gap-y-10";
+
+const sponsorLiClass =
+  "flex min-h-24 min-w-0 max-w-[220px] shrink-0 flex-col items-start justify-center text-left sm:max-w-[240px]";
+
+/** Optional `logoScale` multiplies rendered logo size (1 = default). */
+function SponsorItem({
+  item,
+}: {
+  item: { name: string; logoFile?: string; logoScale?: number; nameLight?: boolean };
+}) {
+  const scale =
+    "logoScale" in item && typeof item.logoScale === "number" ? item.logoScale : 1;
+  const scaleOrigin = scale !== 1 ? "origin-left" : "";
+  const nameClass = item.nameLight
+    ? "text-white"
+    : "text-[var(--color-bg-maroon)]";
+
+  return (
+    <li className={sponsorLiClass}>
+      {"logoFile" in item && item.logoFile ? (
+        <div className="relative flex w-full max-w-[220px] items-start justify-start">
+          <span
+            className={`flex w-max max-h-24 max-w-full items-start justify-start ${scaleOrigin}`}
+            style={scale !== 1 ? { transform: `scale(${scale})` } : undefined}
+          >
+            <Image
+              src={`/logos/${encodeURIComponent(item.logoFile)}`}
+              alt={item.name}
+              width={220}
+              height={96}
+              className="max-h-24 w-auto max-w-full object-contain object-left"
+            />
+          </span>
+        </div>
+      ) : (
+        <p className={`font-display text-lg leading-none tracking-wide sm:text-xl ${nameClass}`}>
+          {item.name}
+        </p>
+      )}
+    </li>
+  );
+}
+
 /* -------- Tickets (rust) -------- */
 function TicketsBody() {
   return (
@@ -75,30 +120,27 @@ function TicketsBody() {
         <Eyebrow className="text-white">{sponsors.eyebrow}</Eyebrow>
         <H2 id="sponsors-heading">{sponsors.headline}</H2>
 
-        <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 sm:gap-10">
-          {sponsors.items.map((item, index) => (
-            <li
-              key={`sponsor-${index}`}
-              className="flex flex-col items-center justify-center text-center"
+        <div className="mt-10 flex flex-col gap-12">
+          {sponsors.tiers.map((tier) => (
+            <section
+              key={tier.title}
+              className="flex flex-col gap-6 text-left"
+              aria-labelledby={`sponsor-tier-${tier.title.toLowerCase()}`}
             >
-              {"logoFile" in item ? (
-                <div className="relative flex min-h-24 w-full max-w-[220px] items-center justify-center px-2">
-                  <Image
-                    src={`/logos/${encodeURIComponent(item.logoFile)}`}
-                    alt={item.name}
-                    width={220}
-                    height={96}
-                    className="max-h-24 w-auto max-w-full object-contain"
-                  />
-                </div>
-              ) : (
-                <p className="font-display text-lg sm:text-xl leading-tight tracking-wide text-[var(--color-bg-maroon)]">
-                  {item.name}
-                </p>
-              )}
-            </li>
+              <p
+                id={`sponsor-tier-${tier.title.toLowerCase()}`}
+                className="font-display text-[22px] sm:text-[24px] tracking-[0.35em] text-[var(--color-bg-maroon)] uppercase"
+              >
+                {tier.title}
+              </p>
+              <ul className={sponsorRowClass}>
+                {tier.items.map((item) => (
+                  <SponsorItem key={`${tier.title}-${item.name}`} item={item} />
+                ))}
+              </ul>
+            </section>
           ))}
-        </ul>
+        </div>
       </div>
 
       <div className="mt-12 border-t border-[var(--color-bg-maroon)]/30 pt-8">
