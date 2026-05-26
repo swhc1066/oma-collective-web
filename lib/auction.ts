@@ -1,9 +1,8 @@
 /**
- * Auction items shown on the standalone /auction page.
+ * Static copy + types for the auction page.
  *
- * Single source of truth until the admin backend lands. Photos live in
- * `public/auction/`. `value` stays a pre-formatted string so we don't lock the
- * future backend into a numeric schema before it exists.
+ * Items themselves live in Vercel Blob (`auction/items.json`) and are managed
+ * via the /admin area. See `lib/storage/blob.ts`.
  */
 
 export type AuctionItem = {
@@ -12,7 +11,7 @@ export type AuctionItem = {
   description: string;
   value: string;
   providedBy: string;
-  photoFile?: string;
+  photoUrl?: string;
 };
 
 export const auction = {
@@ -20,23 +19,4 @@ export const auction = {
   headline: "Silent Auction",
   intro:
     "Browse this evening's lots. Bidding details will be shared on site by the host.",
-  items: [
-    // TODO: replace placeholders before launch.
-    {
-      id: "placeholder-1",
-      title: "Placeholder Lot 01",
-      description:
-        "Sample auction item. Replace this entry in lib/auction.ts with real lot copy and a photo in public/auction/.",
-      value: "$0",
-      providedBy: "Donor Name",
-    },
-    {
-      id: "placeholder-2",
-      title: "Placeholder Lot 02",
-      description:
-        "Sample auction item. Replace this entry in lib/auction.ts with real lot copy and a photo in public/auction/.",
-      value: "$0",
-      providedBy: "Donor Name",
-    },
-  ] satisfies readonly AuctionItem[],
 } as const;

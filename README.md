@@ -52,6 +52,30 @@ Don't hunt through JSX. Edit `lib/content.ts` — every section pulls from it.
 Push to GitHub, connect the repo to Vercel, set the
 `NEXT_PUBLIC_TICKETS_URL` env var in the Vercel dashboard. That's it.
 
+## Auction admin (`/admin`)
+
+The QR-accessed auction list at `/auction` is fed by an admin area at
+`/admin`. Items and their photos live in Vercel Blob; there is no database.
+
+One-time setup:
+
+1. In the Vercel dashboard for this project, go to **Storage → Create new →
+   Blob** and connect it. Vercel adds `BLOB_READ_WRITE_TOKEN` to all
+   environments automatically.
+2. Add `ADMIN_PASSWORD` under **Settings → Environment Variables** for
+   Production, Preview, and Development. Pick a strong value
+   (`openssl rand -base64 24` works).
+3. Locally, pull the env vars so the dev server can talk to Blob:
+
+   ```bash
+   npx vercel env pull .env.local
+   ```
+
+4. Visit `/admin/login` and sign in with the password.
+
+Items added via the admin appear immediately on `/auction` (the public page
+is server-rendered and revalidated on every save).
+
 ## What's still placeholder
 
 See `CLAUDE.md` for the full handoff list. Short version: hero shapes are

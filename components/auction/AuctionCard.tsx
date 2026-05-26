@@ -9,9 +9,9 @@ export function AuctionCard({ item }: AuctionCardProps) {
   return (
     <article className="flex flex-col overflow-hidden rounded-2xl bg-white text-[var(--color-bg-maroon)] shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45)]">
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--color-light-teal)]/40">
-        {item.photoFile ? (
+        {item.photoUrl ? (
           <Image
-            src={`/auction/${encodeURIComponent(item.photoFile)}`}
+            src={item.photoUrl}
             alt={item.title}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
