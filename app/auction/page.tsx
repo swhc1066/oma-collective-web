@@ -4,7 +4,7 @@ import { auction, type AuctionItem } from "@/lib/auction";
 import { readItems, type StoredItem } from "@/lib/storage/blob";
 
 export const metadata: Metadata = {
-  title: "Silent Auction — Collective '26",
+  title: "Live Auction — Collective '26",
   description: "Auction items for Collective '26 at Kaneko.",
   robots: { index: false, follow: false },
 };

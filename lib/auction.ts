@@ -16,7 +16,7 @@ export type AuctionItem = {
 
 export const auction = {
   eyebrow: "Collective '26",
-  headline: "Silent Auction",
+  headline: "Live Auction",
   intro:
     "Browse this evening's lots. Bidding details will be shared on site by the host.",
 } as const;

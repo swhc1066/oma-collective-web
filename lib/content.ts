@@ -109,6 +109,7 @@ export const sponsors = {
         { name: "Better Homes and Gardens Real Estate", logoFile: "BHGRE_The Good Life Group_3 LINES_Horizontal_White_CMYK.png" },
         { name: "Morrissey Engineering", logoFile: "morrissey engineering.png" },
         { name: "Lori & Mark Houck", nameLight: true },
+        { name: "Tom & Sheryl Thomsen", nameLight: true },
       ],
     },
     {
