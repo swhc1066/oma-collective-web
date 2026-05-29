@@ -114,7 +114,10 @@ export const sponsors = {
     },
     {
       title: "Neighbor",
-      items: [{ name: "Barbara Schlott", nameLight: true }],
+      items: [
+        { name: "Barbara Schlott", nameLight: true },
+        { name: "Kali Gilbert", nameLight: true },
+      ],
     },
   ],
 } as const;
