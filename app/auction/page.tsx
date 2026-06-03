@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { AuctionCard } from "@/components/auction/AuctionCard";
 import { auction, type AuctionItem } from "@/lib/auction";
-import { readItems, type StoredItem } from "@/lib/storage/blob";
+import { createStaticClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "Live Auction — Collective '26",
@@ -9,25 +9,18 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export const dynamic = "force-dynamic";
-
-function toAuctionItem(stored: StoredItem): AuctionItem {
-  return {
-    id: stored.id,
-    title: stored.title,
-    description: stored.description,
-    value: stored.value,
-    providedBy: stored.providedBy,
-    photoUrl: stored.photoUrl,
-  };
-}
+export const revalidate = 60;
 
 export default async function AuctionPage() {
-  const stored = await readItems();
-  const items = stored
-    .slice()
-    .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
-    .map(toAuctionItem);
+  const supabase = createStaticClient();
+  const { data } = await supabase
+    .from("auction_lots")
+    .select("*")
+    .eq("status", "published")
+    .order("display_order", { ascending: true })
+    .order("created_at", { ascending: true });
+
+  const items = (data ?? []) as AuctionItem[];
   const hasItems = items.length > 0;
 
   return (

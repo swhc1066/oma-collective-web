@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { logout } from "../actions";
+import { signOut } from "../actions";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +12,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           >
             Collective &apos;26 Admin
           </Link>
-          <form action={logout}>
+          <form action={signOut}>
             <button
               type="submit"
               className="font-display text-xs tracking-[0.3em] uppercase underline-offset-4 hover:underline"

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ItemForm } from "@/components/admin/ItemForm";
-import { createItem } from "../../actions";
+import { createLot } from "../../actions";
 
-export default function NewItemPage() {
+export default function NewLotPage() {
   return (
     <div className="max-w-2xl">
       <div className="mb-8">
@@ -10,14 +10,14 @@ export default function NewItemPage() {
           href="/admin"
           className="font-display text-xs tracking-[0.25em] uppercase text-stone-600 underline-offset-4 hover:underline"
         >
-          ← Back to items
+          ← Back to lots
         </Link>
         <h1 className="mt-2 font-display text-3xl tracking-wide text-stone-900">
-          Add Auction Item
+          New Auction Lot
         </h1>
       </div>
 
-      <ItemForm action={createItem} submitLabel="Add item" />
+      <ItemForm action={createLot} submitLabel="Create lot" />
     </div>
   );
 }
