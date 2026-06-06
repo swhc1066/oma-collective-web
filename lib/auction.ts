@@ -23,7 +23,7 @@ export const auction = {
 export const donationCard = {
   url: "https://www.zeffy.com/en-US/donation-form/old-market-collective-26-donations",
   image: "/auction/old-market-donation.png",
-  title: "12. Support the Old Market",
+  title: "12. Donate to the Old Market",
   subtitle: "Be Part of the Story",
   body:
     "The Old Market thrives because of the people who care about it. Your donation helps strengthen our community, support district initiatives, and create the experiences that make the Old Market a place people love to visit, work, live, and celebrate.",
