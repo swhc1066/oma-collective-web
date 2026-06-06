@@ -55,23 +55,24 @@ Push to GitHub, connect the repo to Vercel, set the
 ## Auction admin (`/admin`)
 
 The QR-accessed auction list at `/auction` is fed by an admin area at
-`/admin`. Items and their photos live in Vercel Blob; there is no database.
+`/admin`. Items and photos live in Supabase (Postgres + Storage).
 
 One-time setup:
 
-1. In the Vercel dashboard for this project, go to **Storage → Create new →
-   Blob** and connect it. Vercel adds `BLOB_READ_WRITE_TOKEN` to all
-   environments automatically.
-2. Add `ADMIN_PASSWORD` under **Settings → Environment Variables** for
-   Production, Preview, and Development. Pick a strong value
-   (`openssl rand -base64 24` works).
-3. Locally, pull the env vars so the dev server can talk to Blob:
+1. Create a Supabase project and add these env vars in Vercel (and
+   `.env.local` locally):
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `ALLOWED_ADMIN_EMAIL` (the single admin email; middleware rejects all
+     others even if they have valid Supabase credentials)
 
-   ```bash
-   npx vercel env pull .env.local
-   ```
+2. In the Supabase dashboard:
+   - **Authentication → Providers → Email**: ensure Email is enabled.
+   - **Authentication → Users → Add user**: create the admin with the same
+     email as `ALLOWED_ADMIN_EMAIL`, set a strong password, and mark the email
+     as confirmed.
 
-4. Visit `/admin/login` and sign in with the password.
+3. Visit `/admin/login` and sign in with that email and password.
 
 Items added via the admin appear immediately on `/auction` (the public page
 is server-rendered and revalidated on every save).
