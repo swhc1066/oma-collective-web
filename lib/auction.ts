@@ -20,6 +20,17 @@ export const auction = {
     "Browse this evening's lots. Bidding details will be shared on site by the host.",
 } as const;
 
+export const donationCard = {
+  url: "https://www.zeffy.com/en-US/donation-form/old-market-collective-26-donations",
+  image: "/auction/old-market-donation.png",
+  title: "12. Support the Old Market",
+  subtitle: "Be Part of the Story",
+  body:
+    "The Old Market thrives because of the people who care about it. Your donation helps strengthen our community, support district initiatives, and create the experiences that make the Old Market a place people love to visit, work, live, and celebrate.",
+  footer:
+    "Your generosity helps ensure a vibrant Old Market for today and for generations to come.",
+} as const;
+
 const usd = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",

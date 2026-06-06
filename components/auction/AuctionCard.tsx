@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { formatValue, type AuctionItem } from "@/lib/auction";
+import { type AuctionItem } from "@/lib/auction";
 import { AuctionDescription } from "@/components/auction/AuctionDescription";
 
 interface AuctionCardProps {
@@ -54,12 +54,6 @@ export function AuctionCard({ item }: AuctionCardProps) {
             {item.title}
           </h2>
 
-          <p className="inline-flex w-max items-center gap-2 rounded-full bg-[var(--color-chartreuse)] px-3 py-1 font-display text-xs sm:text-sm tracking-[0.25em] text-[var(--color-bg-maroon)]">
-            <span>Value</span>
-            <span aria-hidden="true">·</span>
-            <span>{formatValue(item.value)}</span>
-          </p>
-
           {item.description && (
             <AuctionDescription description={item.description} lineClamp={3} />
           )}
@@ -97,19 +91,11 @@ export function AuctionCard({ item }: AuctionCardProps) {
             {item.title}
           </DialogTitle>
 
-          <p className="inline-flex w-max items-center gap-2 rounded-full bg-[var(--color-chartreuse)] px-3 py-1 font-display text-xs sm:text-sm tracking-[0.25em] text-[var(--color-bg-maroon)]">
-            <span>Value</span>
-            <span aria-hidden="true">·</span>
-            <span>{formatValue(item.value)}</span>
-          </p>
-
           <DialogDescription asChild>
             {item.description ? (
               <AuctionDescription description={item.description} />
             ) : (
-              <p className="sr-only">
-                {`Auction lot valued at ${formatValue(item.value)}.`}
-              </p>
+              <p className="sr-only">{item.title} auction lot.</p>
             )}
           </DialogDescription>
 

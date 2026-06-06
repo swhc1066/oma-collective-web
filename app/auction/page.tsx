@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AuctionCard } from "@/components/auction/AuctionCard";
+import { DonationCard } from "@/components/auction/DonationCard";
 import { auction, type AuctionItem } from "@/lib/auction";
 import { createStaticClient } from "@/lib/supabase/server";
 
@@ -21,7 +22,6 @@ export default async function AuctionPage() {
     .order("created_at", { ascending: true });
 
   const items = (data ?? []) as AuctionItem[];
-  const hasItems = items.length > 0;
 
   return (
     <main className="min-h-dvh bg-[var(--color-bg-maroon)] text-white">
@@ -38,28 +38,15 @@ export default async function AuctionPage() {
           </p>
         </header>
 
-        {hasItems ? (
-          <section
-            aria-label="Auction items"
-            className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {items.map((item) => (
-              <AuctionCard key={item.id} item={item} />
-            ))}
-          </section>
-        ) : (
-          <section
-            aria-label="Auction items"
-            className="mt-20 rounded-2xl border border-white/15 px-8 py-16 text-center"
-          >
-            <p className="font-display text-2xl sm:text-3xl tracking-wide text-white">
-              No items yet
-            </p>
-            <p className="mx-auto mt-4 max-w-md text-base text-white/75">
-              Check back closer to the event — lots will be posted here as they are confirmed.
-            </p>
-          </section>
-        )}
+        <section
+          aria-label="Auction items"
+          className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {items.map((item) => (
+            <AuctionCard key={item.id} item={item} />
+          ))}
+          <DonationCard />
+        </section>
       </div>
     </main>
   );

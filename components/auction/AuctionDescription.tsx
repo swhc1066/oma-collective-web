@@ -23,7 +23,7 @@ export function AuctionDescription({
   return (
     <div
       className={cn(
-        "text-base leading-relaxed text-[var(--color-bg-maroon)]/80",
+        "text-base leading-normal text-[var(--color-bg-maroon)]/80",
         lineClamp === 2 && "line-clamp-2",
         lineClamp === 3 && "line-clamp-3",
         className,
@@ -32,7 +32,7 @@ export function AuctionDescription({
       {lines.map((line, index) => {
         const trimmed = line.trim();
         if (!trimmed) {
-          return <div key={index} className="h-3" aria-hidden="true" />;
+          return <div key={index} className="h-2" aria-hidden="true" />;
         }
 
         let bold = isIncludesLine(line);
@@ -47,7 +47,7 @@ export function AuctionDescription({
             className={cn(
               "block",
               bold && "font-semibold text-[var(--color-bg-maroon)]",
-              isIncludesLine(line) && "mt-4",
+              isIncludesLine(line) && "mt-3",
             )}
           >
             {line.trimEnd()}
