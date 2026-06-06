@@ -9,6 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { formatValue, type AuctionItem } from "@/lib/auction";
+import { AuctionDescription } from "@/components/auction/AuctionDescription";
 
 interface AuctionCardProps {
   item: AuctionItem;
@@ -60,13 +61,11 @@ export function AuctionCard({ item }: AuctionCardProps) {
           </p>
 
           {item.description && (
-            <p className="line-clamp-3 text-base leading-relaxed text-[var(--color-bg-maroon)]/80">
-              {item.description}
-            </p>
+            <AuctionDescription description={item.description} lineClamp={3} />
           )}
 
           {item.donor && (
-            <p className="mt-auto font-display text-xs sm:text-sm tracking-[0.3em] text-[var(--color-bg-maroon)]/70">
+            <p className="mt-auto font-display text-xs sm:text-sm !leading-[1.35] tracking-[0.3em] text-[var(--color-bg-maroon)]/70">
               Generously provided by {item.donor}
             </p>
           )}
@@ -104,20 +103,18 @@ export function AuctionCard({ item }: AuctionCardProps) {
             <span>{formatValue(item.value)}</span>
           </p>
 
-          {/* Always render a description so Radix has a valid aria-describedby;
-              visible when there's real copy, screen-reader-only otherwise. */}
-          <DialogDescription
-            className={
-              item.description
-                ? "text-base leading-relaxed text-[var(--color-bg-maroon)]/80 whitespace-pre-line"
-                : "sr-only"
-            }
-          >
-            {item.description ?? `Auction lot valued at ${formatValue(item.value)}.`}
+          <DialogDescription asChild>
+            {item.description ? (
+              <AuctionDescription description={item.description} />
+            ) : (
+              <p className="sr-only">
+                {`Auction lot valued at ${formatValue(item.value)}.`}
+              </p>
+            )}
           </DialogDescription>
 
           {item.donor && (
-            <p className="mt-2 font-display text-xs sm:text-sm tracking-[0.3em] text-[var(--color-bg-maroon)]/70">
+            <p className="mt-2 font-display text-xs sm:text-sm !leading-[1.35] tracking-[0.3em] text-[var(--color-bg-maroon)]/70">
               Generously provided by {item.donor}
             </p>
           )}
